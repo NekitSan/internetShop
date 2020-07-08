@@ -1,0 +1,7 @@
+# Charset
+AddDefaultCharset UTF-8
+
+# Errors
+php_value error_reporting -1
+php_flag display_startup_errors on
+php_flag display_errors on

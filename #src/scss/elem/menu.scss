@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    height: 50px;
+
+    .logo {
+        img {
+            display: inline-block;
+            height: 50px;
+            width: auto;
+        }
+    }
+
+    nav {
+        height: inherit;
+        font-size: 0;
+
+        .menu-item {
+            display: inline-flex;
+            padding: 5px;
+            color: #000;
+            font-size: 16px;
+            border-right: 1px solid #000;
+        }
+        .menu-item:hover {
+            background-color: #bbb;
+        }
+        .menu-item:last-child {
+            border-right: none;
+        }
+    }
+}
+
