@@ -5,6 +5,65 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.wrapper{
+
+    .container{
+        section {
+            width: 100%;
+            padding: 10px;
+        }
+    }
+}
+
+.clear {
+    clear: both;
+}
+
+.button {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    overflow: visible;
+
+    /*background*/
+    border-color: #1e73be;
+    background-color: #1e73be;
+    border-radius: 2px;
+    border: 0;
+    /*text*/
+    color: #ffffff;
+    font-size: 100%;
+    font-weight: 700;
+    line-height: 1;
+    white-space: normal;
+    text-decoration: none;
+    /*null style*/
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+    /*animation*/
+    transition: .4s ease-out;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    background-color: #ebe9eb;
+    color: #333;
+}
+
+.icons {
+    display: block;
+    height: inherit;
+    img {
+        display: inline-block;
+        width: auto;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
+
+/* Constructor */
 .list-colors {
 	display: flex;
     flex-direction: row;

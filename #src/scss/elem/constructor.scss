@@ -3,14 +3,17 @@
     justify-content: center;
     align-items: center;
     //text-transform: uppercase;
+
+    position: relative;
+
     .constructor_part {
-        display: inline-block;
-        min-height: 228px;
+        display: block;
+        min-height: 248px;
         min-width: 200px;
         height: auto;
         width: 15vw;
         padding: 5px;
-        margin-left: 6px;
+        margin-right: 10px;
         border: 1px solid #000;
         text-align: center;
 
@@ -86,6 +89,7 @@
         }
         .constructor-menu_item:last-child {
             border-bottom: none;
+            margin-right: none;
         }
 
         .constructor_modules {
@@ -104,15 +108,21 @@
     .constructor_part:nth-child(2) {
         position: relative;
         padding: 0;
+        width: 100%;
+        margin: 0;
         .constructor_part-background_block {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: inherit;
+            height: 100%;
             width: 100%;
             padding: 20px;
             .constructor_part-block {
                 display: block;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                //background-attachment: fixed;
                 width: auto;
                 height: 200px;
                 width: 150px;
@@ -122,29 +132,46 @@
 
     }
     .constructor_part:nth-child(3) {
-            
-        #constructor_part-color_block {
-            display: none;
-        }
+        position: absolute;
+        border: none;
+        right: 10px;
 
-        #constructor_part-size_block {
-            display: none;
-        }
+        .constructor_part-inner
+        {
+            .constructor_clear {
+                opacity: 0;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 5px;
+                background-color: orange;
+                border-radius: 3px;
+                border: solid 1px #000;
+            }
+                
+            #constructor_part-color_block {
+                display: none;
+            }
 
-        #constructor_part-set_block {
-            display: none;
-        }
+            #constructor_part-size_block {
+                display: none;
+            }
 
-        #constructor_part-filler_block {
-            display: none;
-        }
+            #constructor_part-set_block {
+                display: none;
+            }
 
-        #constructor_part-decoration_block {
-            display: none;
-        }
+            #constructor_part-filler_block {
+                display: none;
+            }
 
-        #constructor_part-backlight_block {
-            display: none;
+            #constructor_part-decoration_block {
+                display: none;
+            }
+
+            #constructor_part-backlight_block {
+                display: none;
+            }
         }
     }
 }

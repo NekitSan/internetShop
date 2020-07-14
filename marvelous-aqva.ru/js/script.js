@@ -1,6 +1,22 @@
 "use strict";
 
 //@import "elem/file.X";
+$(document).ready(function () {
+  var numOfClicks = 0;
+  var $elem = $('.menu-title');
+  $elem.on('click', function () {
+    ++numOfClicks;
+
+    if (numOfClicks % 2 !== 0) {
+      $('.inner_menu').css("display", "block");
+      $elem.css("border-bottom", "solid 3px #fff");
+    } else {
+      $('.inner_menu').css("display", "");
+      $elem.css("border-bottom", "");
+    }
+  });
+});
+
 var CONSTRUCTOR = function CONSTRUCTOR() {
   /* Menu */
   var choiceColorOpen, choiceColor, choiceSizeOpen, choiceSize, choiceSetOpen, choiceSet, choiceFillerOpen, choiceFiller, choiceDecorationOpen, choiceeDecoration, choiceBacklightOpen, choiceBacklightClose, choiceBacklight;
@@ -33,21 +49,29 @@ var CONSTRUCTOR = function CONSTRUCTOR() {
 
   /* Action */
 
-  var colorList = $(".colorList-item");
-  var block_tovar = $(".constructor_part-block");
-  var shadowList = $(".backlightList-item");
-  var shadow_tovar = $(".constructor_part-background_block");
-  var sizeList = $(".sizeList-item");
-  var setList = $(".setList-item");
+  var colorList, shadowList, block_tovar, shadow_tovar, sizeList, setList, fillerList, filler_blocks, decorationList, decoration_blocks;
+  block_tovar = $(".constructor_part-block");
+  shadow_tovar = $(".constructor_part-block");
+  colorList = $(".colorList-item");
+  shadowList = $(".backlightList-item");
+  sizeList = $(".sizeList-item");
+  setList = $(".setList-item");
+  fillerList = $(".fillerList-item");
+  filler_blocks = {
+    sand: "https://krot.info/uploads/posts/2020-01/1579372333_19-70.jpg",
+    plastic: "https://cdn.recyclemag.ru/main/f/f1c5cc3483ff59de6d85e91a42488208.jpg",
+    stone: "https://cdn3.static1-sima-land.com/items/791669/0/700.jpg?v=0"
+  };
+  decorationList = $(".decorationList-item");
   /* #Action# */
 
   var constructor_collector = {
-    color: [choiceColorOpen, choiceColor],
-    size: [choiceSizeOpen, choiceSize],
-    set: [choiceSetOpen, choiceSet],
-    filler: [choiceFillerOpen, choiceFiller],
-    decoration: [choiceDecorationOpen, choiceeDecoration],
-    backligh: [choiceBacklightOpen, choiceBacklightClose, choiceBacklight],
+    color: [choiceColorOpen, choiceColor, colorList],
+    size: [choiceSizeOpen, choiceSize, sizeList],
+    set: [choiceSetOpen, choiceSet, setList],
+    filler: [choiceFillerOpen, choiceFiller, fillerList],
+    decoration: [choiceDecorationOpen, choiceeDecoration, decorationList],
+    backligh: [choiceBacklightOpen, choiceBacklightClose, choiceBacklight, shadowList],
     Menu: function Menu() {
       constructor_collector.color[0].click(function () {
         constructor_collector.color[1].css("display", "block");
@@ -79,23 +103,23 @@ var CONSTRUCTOR = function CONSTRUCTOR() {
       });
     },
     Action: function Action() {
-      colorList.click(function () {
+      constructor_collector.color[2].click(function () {
         var colorBlock = $(this).attr('style');
         var modifColorBlock = colorBlock.replace(/background-color:/g, "");
         modifColorBlock = modifColorBlock.replace(/;/g, "");
         block_tovar.css('background-color', modifColorBlock);
       });
-      shadowList.click(function () {
+      constructor_collector.backligh[3].click(function () {
         var shadowBlock = $(this).attr('style');
         var modifShadowBlock = shadowBlock.replace(/background-color:/g, "");
         modifShadowBlock = modifShadowBlock.replace(/;/g, "");
         shadow_tovar.css("background-color", modifShadowBlock);
       });
-      sizeList.click(function () {
+      constructor_collector.size[2].click(function () {
         var sizeBlock = $(this).attr('value');
         block_tovar.css("height", sizeBlock);
       });
-      setList.click(function () {
+      constructor_collector.set[2].click(function () {
         var setBlock = $(this).attr('value');
 
         switch (setBlock) {
@@ -111,6 +135,46 @@ var CONSTRUCTOR = function CONSTRUCTOR() {
             block_tovar.css("border-radius", "50px");
             break;
         }
+      });
+      constructor_collector.filler[2].click(function () {
+        var fillerBlock = $(this).attr('value');
+
+        switch (fillerBlock) {
+          case '0':
+            block_tovar.css("background-image", 'url(' + filler_blocks.sand + ')');
+            break;
+
+          case '1':
+            block_tovar.css("background-image", 'url(' + filler_blocks.plastic + ')');
+            break;
+
+          case '2':
+            block_tovar.css("background-image", 'url(' + filler_blocks.stone + ')');
+            break;
+        }
+      });
+      constructor_collector.decoration[2].click(function () {
+        var decorationBlock = $(this).attr('value');
+
+        switch (decorationBlock) {
+          case '0':
+            block_tovar.css("border", 'solid 5px');
+            break;
+
+          case '1':
+            block_tovar.css("border", 'solid 10px');
+            break;
+
+          case '2':
+            block_tovar.css("border", 'solid 0px');
+            break;
+        }
+      });
+      $(".act").click(function () {
+        $(".constructor_clear").css("opacity", "1");
+      });
+      $(".constructor_clear").click(function () {
+        clearStyleList(101);
       });
     }
   };
@@ -175,8 +239,22 @@ var CONSTRUCTOR = function CONSTRUCTOR() {
         constructor_collector.size[1].css("display", "");
         constructor_collector.set[1].css("display", "");
         constructor_collector.filler[1].css("display", "");
-        constructor_collector.backligh[2].css("display", "");
         constructor_collector.decoration[1].css("display", "");
+        constructor_collector.backligh[2].css("display", "");
+        $(".constructor_clear").css("opacity", "");
+        break;
+
+      case 101:
+        constructor_collector.color[1].css("display", "");
+        constructor_collector.size[1].css("display", "");
+        constructor_collector.set[1].css("display", "");
+        constructor_collector.filler[1].css("display", "");
+        constructor_collector.decoration[1].css("display", "");
+        constructor_collector.backligh[2].css("display", "");
+        $(".constructor_clear").css("opacity", "");
+        block_tovar.attr("style", "");
+        shadow_tovar.attr("style", "");
+        clearChecked(constructor_collector.backligh[0], constructor_collector.backligh[1]);
         break;
 
       default:

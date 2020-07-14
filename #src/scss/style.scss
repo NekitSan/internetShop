@@ -12,6 +12,93 @@
 @import "elem/nullstyle";
 
 @import "elem/config";
+@import "elem/info-header";
 @import "elem/menu";
 @import "elem/constructor";
+@import "elem/product";
+
+@media only screen and  (max-width: 768px) {
+	header {
+		flex-direction: column;
+		text-align: center;
+
+		.inner_menu-info {
+			display: block;
+			height: auto;
+			.logo {
+				width: 100%;
+				margin: 0;
+			}
+			.list-phones {
+				width: 100%;
+				margin: 0;
+				padding: 10px 0 20px 0;
+			}
+			.links {
+				width: 100%;
+				margin: 0;
+			}
+		}
+
+		.menu {
+			flex-direction: column;
+			ul {
+				width: 100%;
+				.menu-title {
+					display: block;
+				}
+			}
+		}
+		.inner_menu
+		{
+			display: none;
+			.menu-item {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+	.product-list_item {
+		width: 50%;
+	}
+}
+
+@media (max-width: 1000px) and (min-width: 768px) {
+	header {
+		flex-direction: column;
+		text-align: center;
+
+		.menu {
+			flex-direction: column;
+			ul {
+				width: 100%;
+				.menu-title {
+					display: block;
+				}
+			}
+		}
+		.inner_menu
+		{
+			display: none;
+			.menu-item {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+	.product-list_item {
+		width: 33.333%;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.product-list_item {
+		width: 20%;
+	}
+	.inner_menu
+	{
+		display: block;
+	}
+}
+
 

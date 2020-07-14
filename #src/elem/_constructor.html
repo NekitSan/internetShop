@@ -2,23 +2,23 @@
     <div class="constructor_part">
         <h1>Меню</h1>
         <ul class="constructor-menu">
-            <li class="constructor-menu_item items" id="constructor_choice-color">
+            <li class="constructor-menu_item items act" id="constructor_choice-color">
                 <span>цвет</span>
             </li>
-            <li class="constructor-menu_item items" id="constructor_choice-size">
+            <li class="constructor-menu_item items act" id="constructor_choice-size">
                 <span>размеры</span>
             </li>
-            <li class="constructor-menu_item items" id="constructor_choice-set">
+            <li class="constructor-menu_item items act" id="constructor_choice-set">
                 <span>комлектация</span>
             </li>
             <li class="constructor-menu_item" id="menu-inner">
                 <span>разное:</span>
                 <div class="constructor-menu_item-inner" id="menu-inner_list">
                     <ul>
-                        <li class="items" id="constructor_choice-filler">
+                        <li class="items act" id="constructor_choice-filler">
                             <span>наполнители</span>
                         </li>
-                        <li class="items" id="constructor_choice-decoration">
+                        <li class="items act" id="constructor_choice-decoration">
                             <span>декорации</span>
                         </li>
                     </ul>
@@ -26,16 +26,19 @@
             </li>
             <li class="constructor-menu_item">
                 <p><input name="backlight" type="radio" id="backlight_no" value="no" checked> без подсветки</p>
-                <p><input name="backlight" type="radio" id="backlight_yes" value="yes"> с подсветкой</p>
+                <p><input class="act" name="backlight" type="radio" id="backlight_yes" value="yes"> с подсветкой</p>
             </li>
         </ul>
     </div>
     <div class="constructor_part">
         <div class="constructor_part-background_block">
-            <div class="constructor_part-block"></div>
+            <div class="constructor_part-block icons">
+                <img src="/images/products/box.png" alt="Базовый аквариум">
+            </div>
         </div>
     </div>
     <div class="constructor_part">
+        <div class="constructor_part-inner">
         <div class="constructor_part-list_block">
             <div class="constructor_modules" id="constructor_part-color_block">
                 <article class="heading">Цвет</article>
@@ -67,17 +70,17 @@
             <div class="constructor_modules" id="constructor_part-filler_block">
                 <article class="heading">Наполнители</article>
                 <div class="constructor_list">
-                    <div class="fillerList-item constructor_list-item items" id="">Песок</div>
-                    <div class="fillerList-item constructor_list-item items" id="">Пластмасовый</div>
-                    <div class="fillerList-item constructor_list-item items" id="">Мелкие камни</div>
+                    <div class="fillerList-item constructor_list-item items" value="0">Песок</div>
+                    <div class="fillerList-item constructor_list-item items" value="1">Пластмасовый</div>
+                    <div class="fillerList-item constructor_list-item items" value="2">Мелкие камни</div>
                 </div>
             </div>
             <div class="constructor_modules" id="constructor_part-decoration_block">
                 <article class="heading">Декорации</article>
                 <div class="constructor_list">
-                    <div class="decorationList-item constructor_list-item items" id="">Кораллы</div>
-                    <div class="decorationList-item constructor_list-item items" id="">Корабли</div>
-                    <div class="decorationList-item constructor_list-item items" id="">Деревья</div>
+                    <div class="decorationList-item constructor_list-item items" value="0">Кораллы</div>
+                    <div class="decorationList-item constructor_list-item items" value="1">Корабли</div>
+                    <div class="decorationList-item constructor_list-item items" value="2">Деревья</div>
                 </div>
             </div>
             <div class="constructor_modules" id="constructor_part-backlight_block">
@@ -90,6 +93,8 @@
                     <div class="backlightList-item items-color" style="background-color: red;" id="light_red" title="Красная"></div>
                 </div>
             </div>
+        </div>
+        <div class="constructor_clear items">Очистить все</div>
         </div>
     </div>   
 </div>
