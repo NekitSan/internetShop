@@ -52,7 +52,7 @@ body {
     color: #333;
 }
 
-.icons {
+.global-img-boxs {
     display: block;
     height: inherit;
     img {
@@ -61,6 +61,13 @@ body {
         height: 100%;
         margin: 0 auto;
     }
+}
+
+.position-box-center {
+	display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
 /* Constructor */

@@ -1,19 +1,19 @@
-.catalog {
-    .product-menu_variation {
-        width: auto;
-        padding-right: 10px;
-        float: left;
-        margin: 0;
-        padding: 0;
+.product-menu_variation {
+    width: auto;
+    padding-right: 10px;
+    float: left;
+    margin: 0;
+    padding: 0;
+        
+    ul {
+        margin-top: 10px;
 
         h2 {
             padding: 7px;
-            font-size: 36px;
-            margin-bottom: 30px;
+            font-size: 30px;
+            margin-bottom: 2px;
         }
-
         li {
-            
             a {
                 display: block;
                 padding: 15px 20px;
@@ -22,6 +22,9 @@
             }
         }
     }
+}
+
+.catalog {
 
     .grocery-list {
         width: auto;

@@ -1,0 +1,22 @@
+.elemet-container {
+    display: block;
+    min-width: 158px;
+    min-height: 158px;
+    margin: 0 0 10px 10px;
+
+    .video {
+        width: inherit;
+        height: 100%;
+        border: solid 1px #000;
+    }
+
+    .photo {
+        width: inherit;
+        height: 100%;
+        border: solid 1px #000;
+    }
+}
+
+.elemet-container:last-child {
+    margin-right: 0;
+}
