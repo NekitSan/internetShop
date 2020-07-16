@@ -1,100 +1,85 @@
 <div class="main-block-constructor">
-    <div class="constructor_part">
-        <h1>Меню</h1>
-        <ul class="constructor-menu">
-            <li class="constructor-menu_item items act" id="constructor_choice-color">
-                <span>цвет</span>
-            </li>
-            <li class="constructor-menu_item items act" id="constructor_choice-size">
-                <span>размеры</span>
-            </li>
-            <li class="constructor-menu_item items act" id="constructor_choice-set">
-                <span>комлектация</span>
-            </li>
-            <li class="constructor-menu_item" id="menu-inner">
-                <span>разное:</span>
-                <div class="constructor-menu_item-inner" id="menu-inner_list">
-                    <ul>
-                        <li class="items act" id="constructor_choice-filler">
-                            <span>наполнители</span>
+    <div class="constructor_part-block">
+        <div class="constructor_part">
+            <ul class="constructor_part-menu_list">
+                <li class="constructor_part-menu_itemm items" id="color_item">цвет корпуса</li>
+                <li class="constructor_part-menu_itemm items">размеры</li>
+                <li class="constructor_part-menu_itemm items">форма</li>
+                <li class="constructor_part-menu_itemm items">комплектация</li>
+                <li class="constructor_part-menu_itemm items" id="list-backlight">подсветка
+                    <ul class="menu_itemm-backlight">
+                        <li>
+                            <input type="radio" name="backlight" checked value="нет"> без подсветки
                         </li>
-                        <li class="items act" id="constructor_choice-decoration">
-                            <span>декорации</span>
+                        <li>
+                            <input type="radio" name="backlight" value="да"> с подсветкой
                         </li>
                     </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="constructor_part">
+            <div class="constructor_part-active_menu">
+                <div class="active_menu">
+                    <div class="constructor_modules" id="color_block">
+                        <article class="heading">Цвет корпуса</article>
+                        <div class="list scroll-list" id="colorList">
+                            <div class="color-items" value="Белый" style="background-color:white;" title="Белый"></div>
+                            <div class="color-items" value="Черный" style="background-color:black;" title="Черный"></div>
+                            <div class="color-items" value="Серый" style="background-color:gray;"  title="Серый"></div>
+                            <div class="color-items" value="Белый" style="background-color:white;" title="Белый"></div>
+                            <div class="color-items" value="Черный" style="background-color:black;" title="Черный"></div>
+                            <div class="color-items" value="Серый" style="background-color:gray;"  title="Серый"></div>
+                            <div class="color-items" value="Белый" style="background-color:white;" title="Белый"></div>
+                            <div class="color-items" value="Черный" style="background-color:black;" title="Черный"></div>
+                            <div class="color-items" value="Серый" style="background-color:gray;"  title="Серый"></div>
+                            <div class="color-items" value="Коричневый" style="background-color:brown;" title="Коричневый"></div>
+                        </div>
+                    </div>
+                    <div class="constructor_modules" id="size_block">
+                        <article class="heading">Размеры корпуса</article>
+                        <div class="list scroll-list items" id="list-size">
+                            <div class="text-items" value="xxxxx">100x100</div>
+                            <div class="text-items" value="xxxxx">200x200</div>
+                            <div class="text-items" value="xxxxx">100x100</div>
+                            <div class="text-items" value="xxxxx">200x200</div>
+                            <div class="text-items" value="xxxxx">100x100</div>
+                            <div class="text-items" value="xxxxx">200x200</div>
+                        </div>
+                    </div>
+                    <div class="constructor_modules" id="configuration_block">
+                        <article class="heading">Форма корпуса</article>
+                        <div class="list scroll-list items " id="list-configuration">
+                            <div class="text-items" value="Цилиндрический">цилиндрическая</div>
+                            <div class="text-items" value="Прямоугольный">прямоугольная</div>
+                        </div>
+                    </div>
+                    <div class="constructor_modules" id="equipment_block">
+                        <article class="heading">Комплектация</article>
+                        <div class="list scroll-list items" id="list-equipment">
+                            <div class="text-items" value="Базованя">Базованя</div>
+                            <div class="text-items" value="Стандарт">Стандарт</div>
+                            <div class="text-items" value="Премиум">Премиум</div>
+                        </div>
+                    </div>
+                    <div class="constructor_modules" id="backlight_block">
+                        <article class="heading">Подсветка корпуса</article>
+                        <div class="list scroll-list" id="colorList">
+                            <div class="color-items" value="Белый" style="background-color:white;" title="Белый"></div>
+                            <div class="color-items" value="Зеленая" style="background-color:green;" title="Зеленая"></div>
+                            <div class="color-items" value="Оранжевая" style="background-color:orange;"  title="Оранжевая"></div>
+                            <div class="color-items global-img-boxs" value="RGB" title="RGB"><img src="images/constructor/rgb.png" alt=""></div>
+                        </div>
+                    </div>
                 </div>
-            </li>
-            <li class="constructor-menu_item">
-                <p><input name="backlight" type="radio" id="backlight_no" value="no" checked> без подсветки</p>
-                <p><input class="act" name="backlight" type="radio" id="backlight_yes" value="yes"> с подсветкой</p>
-            </li>
-        </ul>
-    </div>
-    <div class="constructor_part">
-        <div class="constructor_part-background_block">
-            <div class="constructor_part-block global-img-boxs">
-                <img src="/images/products/box.png" alt="Базовый аквариум">
+                <div class="active_menu-description">
+                    <h2>Описание</h2>
+                    <p>рыба</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="constructor_part">
-        <div class="constructor_part-inner">
-        <div class="constructor_part-list_block">
-            <div class="constructor_modules" id="constructor_part-color_block">
-                <article class="heading">Цвет</article>
-                <div class="colorList list-colors">
-                     <!-- default white -->
-                    <div id="1" class="colorList-item items-color" style="background-color:gray;"  title="Серый"></div>
-                    <div id="2" class="colorList-item items-color" style="background-color:black;" title="Черный"></div>
-                    <div id="3" class="colorList-item items-color" style="background-color:white;" title="Белый"></div>
-                    <div id="4" class="colorList-item items-color" style="background-color:brown;" title="Коричневый"></div>
-                </div>
-            </div>
-            <div class="constructor_modules" id="constructor_part-size_block">
-                <article class="heading">Размер</article>
-                <div class="constructor_list">
-                    <div class="sizeList-item constructor_list-item items" value="30">90/150 литров</div>
-                    <div class="sizeList-item constructor_list-item items" value="74">150/320 литров</div>
-                    <div class="sizeList-item constructor_list-item items" value="90">320/450 литров</div>
-                    <div class="sizeList-item constructor_list-item items" value="200">600/1000 литров</div>
-                </div>
-            </div>
-            <div class="constructor_modules" id="constructor_part-set_block">
-                <article class="heading">Комлектация</article>
-                <div class="constructor_list">
-                    <div class="setList-item constructor_list-item items" value="0">Базованя</div>
-                    <div class="setList-item constructor_list-item items" value="1">Стандарт</div>
-                    <div class="setList-item constructor_list-item items" value="2">Премиум</div>
-                </div>
-            </div>
-            <div class="constructor_modules" id="constructor_part-filler_block">
-                <article class="heading">Наполнители</article>
-                <div class="constructor_list">
-                    <div class="fillerList-item constructor_list-item items" value="0">Песок</div>
-                    <div class="fillerList-item constructor_list-item items" value="1">Пластмасовый</div>
-                    <div class="fillerList-item constructor_list-item items" value="2">Мелкие камни</div>
-                </div>
-            </div>
-            <div class="constructor_modules" id="constructor_part-decoration_block">
-                <article class="heading">Декорации</article>
-                <div class="constructor_list">
-                    <div class="decorationList-item constructor_list-item items" value="0">Кораллы</div>
-                    <div class="decorationList-item constructor_list-item items" value="1">Корабли</div>
-                    <div class="decorationList-item constructor_list-item items" value="2">Деревья</div>
-                </div>
-            </div>
-            <div class="constructor_modules" id="constructor_part-backlight_block">
-                <article class="heading">Подсветка</article>
-                <div class="backlightList list-colors">
-                    <div class="backlightList-item items-color" style="background-color: green;" id="light_green" title="Зеленая"></div>
-                    <div class="backlightList-item items-color" style="background-color: blue;" id="light_green" title="Синий"></div>
-                    <div class="backlightList-item items-color" style="background-color: #fbec5d;" id="light_yellow" title="Желтая"></div>
-                    <div class="backlightList-item items-color" style="background-color: orange;" id="light_orange" title="Орнжевая"></div>
-                    <div class="backlightList-item items-color" style="background-color: red;" id="light_red" title="Красная"></div>
-                </div>
-            </div>
-        </div>
-        <div class="constructor_clear items">Очистить все</div>
-        </div>
+    <div class="constructor_part" id="constructor-block">
+        <!-- img -->
     </div>   
 </div>
