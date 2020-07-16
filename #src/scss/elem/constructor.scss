@@ -16,55 +16,23 @@
         display: flex;
         justify-content: center;
         margin-bottom: 10px;
-        .constructor_part {
-            height: auto;
-            width: 100%;
-            
-            .constructor_part-menu_list {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-                .constructor_part-menu_itemm {
-                    position: relative;
-                    padding: 7px;
-                    width: 100%;
-                    border-bottom: 1px solid #fff;
-                    color: #fff;
-                    background-color: #116EEF;
-                    transition: .4s ease-out;
 
-                    .menu_itemm-backlight {
-                        visibility: hidden;
-                        opacity: 0;
-                        transition: visibility 0s, opacity 0.4s linear;
-                        line-height: 1.4em;
-                        padding-top: 10px;
-                        text-align: left;
-                    }
-                }
-                #list-backlight {
-                    height: 31px;
-                }
-                #list-backlight:hover {
-                    height: auto;
-                    background-color: #000;
-                    .menu_itemm-backlight {
-                        visibility: visible;
-                        opacity: 1;
-                    }
-                }
-                .constructor_part-menu_itemm:hover {
-                    background-color: #498EEF;
-                }
-                .constructor_part-menu_itemm:last-child {
-                    border-bottom: none;
-                }
-            }
+        .constructor_part {
+            min-height: 215px;
+            max-height: 322px;
         }
 
         .constructor_part:nth-child(1) {
-            min-height: 215px;
-            width: 200px;
+            width: 182px;
+            max-width: 182px;
+        }
+
+        .constructor_part:nth-child(2) {
+            max-width: 920px;
+
+            .active_menu-description {
+                max-height: inherit;
+            }
         }
 
         .constructor_part-active_menu {
@@ -79,24 +47,11 @@
                 .constructor_modules:last-child {
                     margin-bottom: 0;
                 }
-
-
-                #color_block {
-                    //display: none;
-                }
-                #size_block {
-                    //display: none;
-                }
-                #configuration_block {
-                    //display: none;
-                }
-                #equipment_block {
-                    //display: none;
-                }
-                #backlight_block {
-                    //display: none;
-                }
             }
+        }
+
+        .active_menu-description {
+            width: 100%;
         }
     }
 

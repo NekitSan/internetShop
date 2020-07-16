@@ -122,10 +122,9 @@ body {
 }
 
 .scroll-list {
-    max-height: 42px;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
+    //overflow-y: scroll;
 }
 .scroll-list::-webkit-scrollbar{
     width: 10px;
@@ -136,6 +135,10 @@ body {
 .scroll-list::-webkit-scrollbar-thumb{
     width: 15px;
     background-color: #498EEF;
+}
+
+.list-constructor {
+    max-height: 42px;
 }
 
 .text-items {
@@ -151,3 +154,4 @@ body {
 .text-items:last-child {
     margin-bottom: 0;
 }
+/* #Constructor# */
