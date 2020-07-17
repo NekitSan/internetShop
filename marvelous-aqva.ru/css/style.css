@@ -172,6 +172,16 @@ body {
   text-align: center;
 }
 
+.position-box-center-horizon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
 #click {
   display: block;
 }
@@ -238,7 +248,7 @@ body {
 }
 
 .scroll-list::-webkit-scrollbar {
-  width: 10px;
+  width: 7px;
 }
 
 .scroll-list::-webkit-scrollbar-track {
@@ -248,6 +258,23 @@ body {
 .scroll-list::-webkit-scrollbar-thumb {
   width: 15px;
   background-color: #498EEF;
+}
+
+.scroll-description {
+  overflow: hidden;
+}
+
+.scroll-description::-webkit-scrollbar {
+  width: 3px;
+}
+
+.scroll-description::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+.scroll-description::-webkit-scrollbar-thumb {
+  width: 15px;
+  background-color: #333;
 }
 
 .list-constructor {
@@ -316,6 +343,25 @@ body {
 
 .inner_menu-info .links .basket {
   position: relative;
+  border-radius: 50% 50%;
+  background-color: #ddd;
+}
+
+.inner_menu-info .links .basket #basket_summ {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  font-size: 9px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #e2423e;
+  border-radius: 50%;
+  padding: 4px 6px;
+}
+
+.inner_menu-info .links .basket:hover {
+  background-color: #fff;
 }
 
 .inner_menu-info .list-phones {
@@ -406,6 +452,10 @@ header .menu ul .inner_menu .menu-item:last-child {
   text-align: center;
 }
 
+.main-block-constructor .constructor_part:last-child {
+  margin-right: 0;
+}
+
 .main-block-constructor .constructor_part-block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -427,11 +477,11 @@ header .menu ul .inner_menu .menu-item:last-child {
 }
 
 .main-block-constructor .constructor_part-block .constructor_part:nth-child(2) {
-  max-width: 920px;
+  width: 920px;
 }
 
 .main-block-constructor .constructor_part-block .constructor_part:nth-child(2) .active_menu-description {
-  max-height: inherit;
+  height: 100%;
 }
 
 .main-block-constructor .constructor_part-block .constructor_part-active_menu .active_menu {
@@ -452,10 +502,54 @@ header .menu ul .inner_menu .menu-item:last-child {
   width: 100%;
 }
 
+.main-block-constructor .constructor_part-block .active_menu-description .text_description-h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.main-block-constructor .constructor_part-block .active_menu-description .text_description {
+  max-height: 280px;
+  margin-left: 10px;
+  border-right: 1px solid #ddd;
+  text-align: left;
+  overflow: hidden;
+}
+
+.main-block-constructor .constructor_part-block .active_menu-description .text_description .text_description-transfer {
+  max-width: 670px;
+  line-height: 1.3em;
+}
+
+.main-block-constructor .constructor_part-block .active_menu-description .text_details {
+  text-align: left;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.main-block-constructor .constructor_part-block .active_menu-description .text_details .description_close {
+  padding: 3px;
+  border-radius: 50px;
+  vertical-align: super;
+  font-size: 12px;
+}
+
+.main-block-constructor .constructor_part-block .active_menu-description .text_details .description_close:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.main-block-constructor .constructor_part-block .active_menu-description .text-des_det {
+  margin-top: 10px;
+}
+
 .main-block-constructor #constructor-block {
   min-height: 185px;
   min-width: 200px;
-  height: 50vh;
+  height: auto;
+}
+
+.main-block-constructor #constructor-block .edit_block {
+  height: 220px;
 }
 
 .product-menu_variation {
@@ -606,6 +700,32 @@ header .menu ul .inner_menu .menu-item:last-child {
 
 .elemet-container:last-child {
   margin-right: 0;
+}
+
+.reviews_block {
+  height: auto;
+  width: 420px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.reviews_block .reviews_block-img {
+  float: left;
+  margin-right: 1.5em;
+}
+
+.reviews_block .reviews_block-text h2 {
+  padding-top: 7px;
+}
+
+.reviews_block .reviews_block-text article {
+  text-align: justify;
+  margin: 7px;
+}
+
+.reviews_block:last-child {
+  margin-right: 0;
+  margin-bottom: 0;
 }
 
 body::-webkit-scrollbar {

@@ -28,6 +28,23 @@
 
         .basket {
             position: relative;
+            border-radius: 50% 50%;
+            background-color: #ddd;
+            #basket_summ {
+                position: absolute;
+                right: -6px;
+                top: -6px;
+                font-size: 9px;
+                color: #fff;
+                font-weight: 700;
+                text-transform: uppercase;
+                background-color: #e2423e;
+                border-radius: 50%;
+                padding: 4px 6px;
+            }
+        }
+        .basket:hover {
+            background-color: #fff;
         }
     }
 

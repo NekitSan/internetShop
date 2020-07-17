@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-    maxSizeBlock($(".text_description"),322,$(".active_menu-description"));
+    maxSizeBlock($(".text_description-transfer"),240,$(".text_description"));
 
     /* Active Menu */
     maxSizeBlock($("#constructor_color"),42,$("#color_block .list-constructor"));

@@ -1,0 +1,27 @@
+.reviews_block {
+    height: auto; //260px
+    width: 420px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    //border: solid 1px #000;
+
+
+    .reviews_block-img {
+        float: left;
+        margin-right: 1.5em
+    }
+
+    .reviews_block-text {
+        h2 {
+            padding-top: 7px;
+        }
+        article {
+            text-align: justify;
+            margin: 7px;
+        }
+    }
+}
+.reviews_block:last-child {
+    margin-right: 0;
+    margin-bottom: 0;
+}
