@@ -19,6 +19,15 @@
 @import "elem/galary";
 @import "elem/reviews";
 
+@media only screen and  (max-width: 670px) {
+	.search {
+		input {
+			width: 50px;
+			margin: 0;
+		}
+	}
+}
+
 @media only screen and  (max-width: 768px) {
 	header {
 		flex-direction: column;

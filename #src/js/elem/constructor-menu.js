@@ -25,14 +25,3 @@ function maxSizeBlock(name, h, block)
         block.css("overflow-y","scroll");
     }
 }
-
-function activeMenu (e,f,key)
-{
-    e.click(function () {
-        var id = f.attr('id');
-        if(id == key)
-            f.attr('id', "click");
-        else
-            f.attr('id', key);
-	});
-}

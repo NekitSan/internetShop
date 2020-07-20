@@ -1,66 +1,82 @@
 <div class="catalog">
-    @@include('_sidebar.html')
-    <ul class="grocery-list">
-        <li class="grocery-list_item">
-            <a href="" class="product"> <!-- Введет на страницу, доп инфы -->
-                <div class="product_photo">
-                    <img src="/images/products/1.jpg" alt="">
-                </div>
-                <div class="product_category">
-                    <p>Marvelous — 90</p>
-                </div>
-                <div class="product_name">90л_Орех (Премиум)</div>
-                <div class="product_price">56 900 Р</div>
-                <div class="product_btn button">В корзину</div> <!-- добавляет в конрзину -->
-            </a>
-        </li>
-        <li class="grocery-list_item">
-            <a href="" class="product"> <!-- Введет на страницу, доп инфы -->
-                <div class="product_photo">
-                    <img src="/images/products/box.png" alt="">
-                </div>
-                <div class="product_category">
-                    <p>Marvelous — 90</p>
-                </div>
-                <div class="product_name">90л_Орех (Премиум)</div>
-                <div class="product_price">56 900 Р</div>
-                <div class="product_btn button">В корзину</div> <!-- добавляет в конрзину -->
-            </a>
-        </li>
-        <li class="grocery-list_item">
-            <a href="" class="product"> <!-- Введет на страницу, доп инфы -->
-                <div class="product_photo">
-                    <img src="/images/products/1.jpg" alt="">
-                </div>
-                <div class="product_category">
-                    <p>Marvelous — 90</p>
-                </div>
-                <div class="product_name">90л_Орех (Премиум)</div>
-                <div class="product_price">56 900 Р</div>
-                <div class="product_btn button">В корзину</div> <!-- добавляет в конрзину -->
-            </a>
-        </li>
-        <li class="grocery-list_item">
-            <a href="" class="product"> <!-- Введет на страницу, доп инфы -->
-                <div class="product_photo">
-                    <img src="/images/products/box.png" alt="">
-                </div>
-                <div class="product_category">
-                    <p>Marvelous — 90</p>
-                </div>
-                <div class="product_name">90л_Орех (Премиум)</div>
-                <div class="product_price">56 900 Р</div>
-                <div class="product_btn button">В корзину</div> <!-- добавляет в конрзину -->
-            </a>
-        </li>
-        <ul class="numbers-below-the-list">
-            <ul class="pages-list ">
-                <li class="page-number page-number_back button"><-</li>
-                <li class="page-number button">1</li>
-                <li class="page-number button">2</li>
-                <li class="page-number button">3</li>
+    <div class="container_catalog position-box-align">
+        @@include('_sidebar.html')
+        <div class="container_list">
+            @@include('filter_search.html')
+            <ul class="grocery-list position-box-center">
+                <li class="grocery-list_item">
+                    <a href="cylindrical.html" class="product product_catalog-item">
+                        <div class="product_photo">
+                            <img src="/images/products/1.jpg" alt="">
+                        </div>
+                        <div class="product_name">Цилиндрические аквариумы</div>
+                    </a>
+                </li>
+                <li class="grocery-list_item">
+                    <a href="rectangular.html" class="product product_catalog-item">
+                        <div class="product_photo">
+                            <img src="/images/products/1.jpg" alt="">
+                        </div>
+                        <div class="product_name">Прямоугольные аквариумы</div>
+                    </a>
+                </li>
+                <li class="grocery-list_item">
+                    <a href="decorations.html" class="product product_catalog-item">
+                        <div class="product_photo">
+                            <img src="/images/products/1.jpg" alt="">
+                        </div>
+                        <div class="product_name">Декорации</div>
+                    </a>
+                </li>
+                <li class="grocery-list_item">
+                    <a href="corals.html" class="product product_catalog-item">
+                        <div class="product_photo">
+                            <img src="/images/products/1.jpg" alt="">
+                        </div>
+                        <div class="product_name">Декорации: Кораллы</div>
+                    </a>
+                </li>
+                <li class="grocery-list_item">
+                    <a href="coralreefs.html" class="product product_catalog-item">
+                        <div class="product_photo">
+                            <img src="/images/products/1.jpg" alt="">
+                        </div>
+                        <div class="product_name">Декорации: Коралловые рифы</div>
+                    </a>
+                </li>
+                <li class="grocery-list_item">
+                    <a href="background.html" class="product product_catalog-item">
+                        <div class="product_photo">
+                            <img src="/images/products/1.jpg" alt="">
+                        </div>
+                        <div class="product_name">Декорации: Фоны погружные на заднюю стенку аквариума</div>
+                    </a>
+                </li>
+                <li class="grocery-list_item">
+                    <a href="design.html" class="product product_catalog-item">
+                        <div class="product_photo">
+                            <img src="/images/products/1.jpg" alt="">
+                        </div>
+                        <div class="product_name">Оформление аквариума</div>
+                    </a>
+                </li>
+                <li class="grocery-list_item">
+                    <a href="variousdesign.html" class="product product_catalog-item">
+                        <div class="product_photo">
+                            <img src="/images/products/1.jpg" alt="">
+                        </div>
+                        <div class="product_name">Оформление для аквариума, террариума, палюдариума, флорариума)</div>
+                    </a>
+                </li>
+                <li class="grocery-list_item">
+                    <a href="equipment.html" class="product product_catalog-item">
+                        <div class="product_photo">
+                            <img src="/images/products/1.jpg" alt="">
+                        </div>
+                        <div class="product_name">Дополнительное оборудование</div>
+                    </a>
+                </li>
             </ul>
-        </ul>
-    </ul>
-    <ul class="clear"></ul>
+        </div>
+    </div>
 </div>

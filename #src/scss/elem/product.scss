@@ -1,39 +1,49 @@
 .product-menu_variation {
-    width: auto;
+    max-width: 280px;
+    max-height: 760px;
     padding-right: 10px;
-    float: left;
     margin: 0;
     padding: 0;
+    border: 2px solid #ddd;
         
     ul {
         margin-top: 10px;
 
         h2 {
+            width: 80%;
             padding: 7px;
-            font-size: 30px;
             margin-bottom: 2px;
+            border-bottom: 2px solid #bbb;
+            font-size: 30px;
         }
         li {
             a {
                 display: block;
                 padding: 15px 20px;
+                color: #000;
                 font-weight: 300;
                 font-size: 1.05rem;
+                line-height: 1.2;
+            }
+            a:hover {
+                background: #ddd;
             }
         }
     }
 }
 
+.container_list {
+    margin-left: 20px;
+    max-width: 836px;
+    height: auto;
+}
+
 .catalog {
 
     .grocery-list {
+        justify-content: left;
         width: auto;
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        flex-wrap: wrap;
         transition: width .2s;
-        border-left: #f4eeee 2px solid;
     
         .grocery-list_item {
             display: block;
@@ -44,11 +54,34 @@
             z-index: 0;
             height: auto;
             text-align: center;
+
+            .product_catalog-item:hover {
+                .product_name {
+                    background: #116EEF;
+                    color: #fff;
+                    text-decoration: underline;
+                }
+            }
+            .product_catalog-item {
+                display: block;
+                border-radius: 3px;
+                max-height: 328px;
+                width: 260px;
+
+                .position-box-center {
+                    height: 68px;
+                }
+
+                .product_name {
+                    padding: 10px 15px;
+                    background-color: #f4eeee;
+                }
+            }
+
         
             .product {
-                background: #ddd;
+                background-color: #ddd;
                 color: #000;
-                margin: 0 -20px 0 0;
                 padding: 0;
                 text-align: center;
             
@@ -105,6 +138,7 @@
         width: 100%;
         text-align: center;
         margin-top: 20px;
+        padding-top: 10px;
         padding-bottom: 20px;
 
         .pages-list  {

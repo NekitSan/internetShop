@@ -2,3 +2,4 @@
 
 @@include('elem/menu.js')
 @@include('elem/constructor.js')
+@@include('elem/rating.js')
