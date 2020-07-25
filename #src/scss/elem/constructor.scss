@@ -113,14 +113,16 @@
         max-height: 322px;
         max-width: 640px;
         height: auto;
-        background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        background-attachment: fixed;
-        background-image: url('../images/background/green.png');
 
         .edit_block {
             height: 220px;
+            width: 72px;
+            background-image: url('../images/products/box.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     }
 }

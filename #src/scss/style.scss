@@ -17,6 +17,7 @@
 @import "elem/constructor";
 @import "elem/product";
 @import "elem/galary";
+@import "elem/contacts";
 @import "elem/reviews";
 
 @media only screen and  (max-width: 670px) {
@@ -36,6 +37,7 @@
 		.inner_menu-info {
 			display: block;
 			height: auto;
+
 			.logo {
 				width: 100%;
 				margin: 0;
@@ -43,7 +45,7 @@
 			.list-phones {
 				width: 100%;
 				margin: 0;
-				padding: 10px 0 20px 0;
+				padding: 10px 0 10px 0;
 			}
 			.links {
 				width: 100%;
@@ -53,6 +55,7 @@
 
 		.menu {
 			flex-direction: column;
+			padding: 10px 0 10px 0;
 			ul {
 				width: 100%;
 				.menu-title {
@@ -63,14 +66,58 @@
 		.inner_menu
 		{
 			display: none;
+			margin-bottom: 15px;
 			.menu-item {
 				display: block;
 				width: 100%;
 			}
+			.menu-item:last-child {
+				border-bottom: solid 1px #fff;
+			}
+		}
+		
+		.menu__group {
+			width: 100%;
+		}
+
+		.links__group {
+			display: none;
+			bottom: -20px;
+			padding-bottom: 10px;
+			width: 100%;
+			background-color: #116EEF;
+			position: absolute;
+		}
+
+		.basket__group {
+			position: absolute;
+			top: 13px;
+			right: 26px;
 		}
 	}
 	.product-list_item {
 		width: 50%;
+	}
+	.product-menu_variation {
+		display: none;
+	}
+	.grocery-list  {
+		justify-content: center;
+	}
+}
+
+@media (max-width: 855px)
+{
+	.menu {
+		margin-bottom: 30px;
+	}
+
+	.links__group {
+		bottom: -20px;
+		padding-bottom: 10px;
+		width: 100%;
+		background-color: #116EEF;
+		position: absolute;
 	}
 }
 
@@ -78,26 +125,17 @@
 	header {
 		flex-direction: column;
 		text-align: center;
-
-		/*
-		.menu {
-			flex-direction: column;
-			ul {
-				width: 100%;
-			}
-		}
-		.inner_menu
-		{
-			display: none;
-			.menu-item {
-				display: block;
-				width: 100%;
-			}
-		}
-		*/
 	}
 	.product-list_item {
 		width: 33.333%;
+	}
+
+	.grocery-list {
+		justify-content: left;
+	}
+	.menu__group {
+		width: auto;
+		margin: 0 32px 0 32px;
 	}
 }
 
@@ -108,6 +146,11 @@
 	.inner_menu
 	{
 		display: block;
+		margin: 0 35px 0 35px;
+	}
+
+	.grocery-list {
+		justify-content: left;
 	}
 }
 

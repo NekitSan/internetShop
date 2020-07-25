@@ -1,25 +1,55 @@
 header {
-
     .menu {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+		position: relative;
         font-size: 0;
         background-color: #116EEF;
-
+        padding: 10px 32px 10px 32px;
         width: auto;
         height: auto;
         min-height: 48px;
         
         ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
             .menu-title {
                 display: none;
                 width: 100%;
                 padding: 16px 10px;
-                color: #fff;
                 font-size: 16px;
                 text-transform: uppercase;
                 font-weight: 600;
+                color: #fff;
+
+                .burger {
+                    width: 26px;
+                    fill: #fff;
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
+            }
+
+            .icon_basket
+            {
+                width: 50px;
+                height: 50px;
+                path {
+                    fill: #fff;
+                }
+            }
+            .icon_basket:hover
+            {
+                padding: 5px;
+                background-color: #fff;
+                border-radius: 3px;
+                path {
+                    fill: #5595EF;
+                }
+            }
+
+            .menu_group {
+                margin: 0 35px 0 35px;
             }
 
             .inner_menu
@@ -34,10 +64,8 @@ header {
                 }
                 .menu-item:hover {
                     color: #333;
-                    background-color: #ddd;
-                }
-                .menu-item:last-child {
-                    border-right: none;
+                    background-color: #fff;
+                    outline: 2px dashed rgba(255,255,255,0.8);
                 }
             }  
         }
