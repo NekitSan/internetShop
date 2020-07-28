@@ -6,10 +6,13 @@ $(document).ready(function()
         $(".constructor_part:nth-child(1)").addClass("disable_button");
         $('.item_parameters').addClass("disable_button");
         $(".menu_parameters").append( $(".constructor_part:nth-child(1) .active_menu") );
+        $('#item_parameters').addClass("active");
     }
     else{
-        $(".item_parameters").addClass("active");
-        $("#item_parameters").addClass("active");
+        $('#item_parameters').addClass("disable_button");
+        $('.text_details').removeClass("disable_button");
+        $("#item_creat").addClass("active");
+        item_parameters
     }
 
     $('#size_block .heading').change(function(){
