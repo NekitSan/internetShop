@@ -810,8 +810,8 @@ header .menu ul .inner_menu .menu-item:hover {
 }
 
 .main-block-constructor #constructor-block .edit_block {
-  height: 220px;
-  width: 72px;
+  height: 380px;
+  min-width: 72px;
 }
 
 .main-block-constructor #constructor-block .edit_block img {
@@ -841,6 +841,14 @@ header .menu ul .inner_menu .menu-item:hover {
 }
 
 .main-block-constructor #size_block #constructor_size1000 {
+  display: none;
+}
+
+.main-block-constructor #color_block #constructor_color_gloss {
+  display: none;
+}
+
+.main-block-constructor #color_block #constructor_color_matt {
   display: none;
 }
 

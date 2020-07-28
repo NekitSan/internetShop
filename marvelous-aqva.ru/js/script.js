@@ -7,50 +7,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 //@import "elem/file.X";
-var images = document.images,
-    images_total_count = images.length,
-    images_loaded_count = 0,
-    image_clone,
-    result_image,
-    prelaoder = $(".prelaoder"),
-    perc_display = $(".under-prelaoder");
-
-for (var i = 0; i < images_total_count; i++) {
-  image_clone = new Image();
-  image_clone.onload = iamge_loaded;
-  image_clone.onerror = iamge_loaded;
-  image_clone.src = images[i].src;
-}
-
-function iamge_loaded() {
-  $('body').css("overflow", "hidden");
-  images_loaded_count++;
-  result_image = 100 / images_total_count * images_loaded_count;
-
-  if (result_image >= 50) {
-    perc_display.cssBefore("border-right-color", "#116EEF");
-  }
-
-  if (result_image >= 75) {
-    perc_display.cssBefore("border-bottom-color", "#116EEF");
-  }
-
-  if (result_image == 100) {
-    perc_display.cssBefore("border-left-color", "#116EEF");
-  }
-
-  perc_display.html((result_image << 0) + '%');
-
-  if (images_loaded_count >= images_total_count) {
-    setTimeout(function () {
-      if (!prelaoder.hasClass('done')) {
-        prelaoder.addClass('done');
-        $('body').css("overflow", "");
-      }
-    }, 1000);
-  }
-}
-
 $(document).ready(function () {
   /* Для телефонов */
   var numOfClicks = 0;
@@ -105,6 +61,26 @@ $(document).ready(function () {
         break;
     }
   });
+  $('#color_block .heading').change(function () {
+    var option_name = $('option:selected', this).attr("name");
+
+    switch (option_name) {
+      case 'none':
+        $("#constructor_color_gloss").css("display", "none");
+        $("#constructor_color_matt").css("display", "none");
+        break;
+
+      case 'gloss':
+        $("#constructor_color_gloss").css("display", "block");
+        $("#constructor_color_matt").css("display", "none");
+        break;
+
+      case 'matt':
+        $("#constructor_color_gloss").css("display", "none");
+        $("#constructor_color_matt").css("display", "block");
+        break;
+    }
+  });
   maxSizeBlock($(".text_description-transfer"), 240, $(".text_description"));
   /* Active Menu */
 
@@ -127,7 +103,8 @@ $(document).ready(function () {
         mod: list,
         block: '.edit_block',
         value: $(this).attr('value'),
-        key: $(this).attr('data-key')
+        key: $(this).attr('data-key'),
+        url: "images/constructor/sets/"
       });
       act.stylec(); //запись в поле с формой на отправку
     });
@@ -138,7 +115,7 @@ $(document).ready(function () {
   constructorAct("#constructor_size1000", ".text-items");
   constructorAct("#configuration_block", ".text-items");
   constructorAct("#constructor_equipment", ".text-items");
-  constructorAct("#constructor_backlight", ".color-items");
+  constructorAct("#backlight_block", ".color-items");
   /* #Constructor# */
 });
 /* 
@@ -173,58 +150,155 @@ var ActButton = /*#__PURE__*/function () {
     this.block = options.block;
     this.value = options.value;
     this.key = options.key;
+    this.url = options.url;
   }
 
   _createClass(ActButton, [{
     key: "stylec",
     value: function stylec() {
       /* Aquarium parameters */
-      var urlImageAquarium = "images/constructor/sets/";
-      var aquariumSizes680 = new Array('_90', '_130', '_150', '_200'); // h 680 mm
-
-      var aquariumSizes1000 = new Array(212, 282, 395, 502, 635, 785); // h 1000 mm
-
-      var aquariumSets = new Array('Б.png', 'С.png', 'П.png');
-      var total_style_symbols = $(this.block).css('background-image').length; // none(4) 
-
-      var colors_total_count = new Array('черный', 'венге', 'орех', 'кедр', 'клен', 'ваниль', 'белый', 'патина', 'фиолет', 'красный');
-      console.log(this.mod);
-      console.log(this.key);
-      console.log("///////////");
-
       switch (this.mod) {
         case '#constructor_size680':
           var sizeStyle = $(this.mod).css('display').length;
-          var sizeValue = $(this.mod).attr('data-key');
+          var sizeValue = $(this.mod).attr('data-mod');
 
           if (sizeStyle != 4 && sizeValue == 680) {
-            console.log(this.mod);
-            console.log(this.key);
+            $(this.block).attr("data-mod", sizeValue);
+            $(this.block).attr("data-size", this.key);
+            $("#description-height").html(sizeValue);
+            $("#description-size").html(this.key);
           }
 
           break;
 
         case '#constructor_size1000':
           var sizeStyle = $(this.mod).css('display').length;
-          var sizeValue = $(this.mod).attr('data-key');
+          var sizeValue = $(this.mod).attr('data-mod');
 
           if (sizeStyle != 4 && sizeValue == 1000) {
-            console.log(this.mod);
-            console.log(this.key);
+            $(this.block).attr("data-mod", sizeValue);
+            $(this.block).attr("data-size", this.key);
+            $("#description-height").html(sizeValue);
+            $("#description-size").html(this.key);
           }
 
           break;
 
         case '#constructor_equipment':
-          if (this.key == "Б") {
-            console.log(this.mod);
-            console.log(this.key);
-          } else if (this.key == "С") {
-            console.log(this.mod);
-            console.log(this.key);
-          } else if (this.key == "П") {
-            console.log(this.mod);
-            console.log(this.key);
+          if ($(this.block).attr("data-color") != "") {
+            var dataURL = $(this.block).attr("data-url");
+
+            if ($(this.block).attr("data-mod") == 680) {
+              if (this.key == "Б") {
+                $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
+                $(this.block + ' img').attr("src", dataURL + this.key + '.png');
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              } else if (this.key == "С") {
+                $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
+                $(this.block + ' img').attr("src", dataURL + this.key + '.png');
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              } else if (this.key == "П") {
+                $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
+                $(this.block + ' img').attr("src", dataURL + this.key + '.png');
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              }
+            } else if ($(this.block).attr("data-mod") == 1000) {
+              if (this.key == "Б") {
+                $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
+                $(this.block + ' img').attr("src", dataURL + this.key + '.png');
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              } else if (this.key == "С") {
+                $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
+                $(this.block + ' img').attr("src", dataURL + this.key + '.png');
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              } else if (this.key == "П") {
+                $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
+                $(this.block + ' img').attr("src", dataURL + this.key + '.png');
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              }
+            }
+          } else {
+            if ($(this.block).attr("data-mod") == 680) {
+              if (this.key == "Б") {
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              } else if (this.key == "С") {
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              } else if (this.key == "П") {
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              }
+            } else if ($(this.block).attr("data-mod") == 1000) {
+              if (this.key == "Б") {
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              } else if (this.key == "С") {
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              } else if (this.key == "П") {
+                $("#description-equipment").html(this.value);
+                $(this.block).attr("data-set", this.key);
+              }
+            } else {
+              alert("Вы не выбрали объем");
+            }
+          }
+
+          break;
+
+        case '#configuration_block':
+          if ($(this.block).attr("data-set") == "Б") {
+            $("#description-configuration").html(this.value);
+            $(this.block).attr("data-config", this.key);
+          } else if ($(this.block).attr("data-set") == "С") {
+            $("#description-configuration").html(this.value);
+            $(this.block).attr("data-config", this.key);
+          } else if ($(this.block).attr("data-set") == "П") {
+            $("#description-configuration").html(this.value);
+            $(this.block).attr("data-config", this.key);
+          } else {
+            alert("Вы не выбрали комплектацию или объем");
+          }
+
+          break;
+
+        case '#constructor_color':
+          if ($(this.block).attr("data-config") != "") {
+            var sizeValue = $(this.mod).attr('data-coating');
+
+            if (sizeValue) {
+              $("#description-color").html('глянцевый, ' + this.key);
+              $(this.block).attr("data-color", this.key);
+              $(this.block).attr("data-url", this.url + this.key + '_90');
+              $(this.block + ' source').attr("srcset", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.webp');
+              $(this.block + ' img').attr("src", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.png');
+            } else if (sizeValue) {
+              $("#description-color").html(this.key);
+              $(this.block).attr("data-color", this.key);
+              $(this.block).attr("data-url", this.url + this.key + '_90');
+              $(this.block + ' source').attr("srcset", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.webp');
+              $(this.block + ' img').attr("src", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.png');
+            }
+          } else {
+            alert("Вы не выбрали предыдущие детали");
+          }
+
+          break;
+
+        case '#backlight_block':
+          if ($(this.block).attr("data-color") != "") {
+            $("#description-backlight").html(this.key);
+            $("#constructor-block").css("background-image", 'url(' + this.value + ')');
+            $("#constructor-block").css("border", 'none');
+          } else {
+            alert("Вы не выбрали предыдущие детали");
           }
 
           break;

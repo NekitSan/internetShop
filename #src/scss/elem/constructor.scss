@@ -116,8 +116,8 @@
         background-position: center;
 
         .edit_block {
-            height: 220px;
-            width: 72px;
+            height: 380px;
+            min-width: 72px;
             img {
                 display: inline-block;
                 width: auto;
@@ -144,6 +144,15 @@
             display: none;
         }
         #constructor_size1000 {
+            display: none;
+        }
+    }
+
+    #color_block {
+        #constructor_color_gloss {
+            display: none;
+        }
+        #constructor_color_matt {
             display: none;
         }
     }
