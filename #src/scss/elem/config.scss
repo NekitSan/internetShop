@@ -3,6 +3,70 @@ body {
     color: #000;
     background-color: #fff; /* #121212 */
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* laod */
+.prelaoder {
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 9999;
+    .under-prelaoder:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        border: solid 10px white;
+        border-radius: 50%;
+        border-top-color: #116EEF;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+    .under-prelaoder {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 55px;
+        height: 55px;
+        line-height: 55px;
+        text-align: center;
+        border-radius: 50%;
+        background: #fff;
+        color: #116EEF;
+        z-index: 99999;
+        opacity: 1;
+    }
+    &.done {
+        opacity: 0;
+        visibility: hidden;
+        z-index: 0;
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        -webkit-transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 /* Global */
@@ -130,7 +194,7 @@ body {
         width: calc(100% - 60px);
         text-align: left;
         font-size: 14px;
-        color: #fff;
+        color: #333;
         outline: 0;
         border-radius: 3px;
         font-family: 'SFUI';
@@ -177,7 +241,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     background-color: #ddd;
-    padding: 5px;
+    padding: 5px 10px;
 } 
 
 
@@ -206,7 +270,14 @@ body {
     height: 32px;
     border-radius: 3px;
     cursor: pointer;
-    border: solid 1px #ddd;
+    border: solid 1px #fff;
+    img {
+        border-radius: 3px;
+        display: inline-block;
+        width: auto;
+        height: 100%;
+        margin: 0 auto;
+    }
 }
 .color-items:hover {
     border: solid 1px #000;
@@ -245,7 +316,7 @@ body {
 }
 
 .list-constructor {
-    max-height: 42px;
+    max-height: 72px;
 }
 
 .text-items {

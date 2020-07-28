@@ -1,7 +1,119 @@
 .contacts_container {
-    
-}
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 10px;
 
-.map-container {
-    
+    h2 {
+        //text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 800;
+        width: 100%;
+        font-size: 16px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        border-bottom: solid 2px #116EEF;
+    }
+
+    article {
+        margin-bottom: 10px;
+        line-height: 1.2;
+        p {
+            margin-top: 10px;
+        }
+    }
+
+    .map-container {
+        display: block;
+        width: inherit;
+        height: 516px;
+    }
+
+    .contacts__introduction_text, .contacts__country, .contacts__other {
+        margin-bottom: 20px;
+    }
+
+    .contacts__introduction_text
+    {
+        article {
+            background-color: #116EEF;
+            color: #fff;
+            font-weight: bold;
+            font-style: italic;
+            padding: 20px;
+        }
+    }
+
+    .contacts__country {
+
+        .contacts__country-list {
+            display: flex;
+            justify-content: center;
+            .contacts__country-item {
+                width: 50%;
+                margin-left: 20px;
+                list-style: square outside;
+                .open_lsit {
+                    display: block;
+                    width: 150px;
+                    padding: 5px 7.5px;
+                    margin-left: 10px;
+                    border: solid 1px #116EEF;
+                    color: #333;
+                    font-size: 14px;
+                    text-align: center;
+                    border-radius: 5px;
+                }
+                .open_lsit:hover {
+                    background-color: #116EEF;
+                    color: #fff;
+                }
+                
+                .contacts__country-item_group{
+                    display: none;
+                    margin-top: 10px;
+                    border: solid 1px #ddd;
+
+                    li {
+                        padding: 10px 15px;
+                        border-bottom: solid 1px #ddd;
+                    }
+                }
+            }
+        }
+    }
+
+    .contacts__other {
+        h2, h3 span {
+            color: blue;
+        }
+        div
+        {
+            line-height: 1.4;
+            color: #7A7A7A;
+            margin-bottom: 20px;
+            p {
+                span {
+                    font-weight: bold;
+                }
+            }
+        }
+        .contacts__other-regions {
+            display: flex;
+            justify-content: left;
+            flex-wrap: wrap;
+            width: inherit;
+            height: auto;
+            article {
+                margin-left: 10px;
+                padding-left: 10px;
+                margin-bottom: 20px;
+                border-left: 1px solid #ddd;
+            }
+        }
+    }
+    .contacts__footer-info {
+        font-size: 120%;
+        color: #3366ff;
+        padding-bottom: 10px;
+    }
 }

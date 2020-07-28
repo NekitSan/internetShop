@@ -24,4 +24,15 @@ $(document).ready(function() {
             $('.burger rect:nth-child(3)').css("opacity","");
         }
     });
+    $(".open_lsit").on('click', function(){
+        ++numOfClicks;
+        if(numOfClicks % 2 !== 0)
+        {
+            $(this).siblings(".contacts__country-item_group").css("display", "block");
+        }
+        else 
+        {
+            $(this).siblings(".contacts__country-item_group").css("display", "");
+        }
+    });
 });

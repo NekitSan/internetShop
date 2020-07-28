@@ -1,9 +1,3 @@
-$(document).ready(function(){
-    //images/rating/stars.png
-
-
-});
-   
 showImg($(".show_list-img"), "show-img", 1, 1);
 
 function rating(numb)

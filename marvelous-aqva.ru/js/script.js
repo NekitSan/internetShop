@@ -7,6 +7,50 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 //@import "elem/file.X";
+var images = document.images,
+    images_total_count = images.length,
+    images_loaded_count = 0,
+    image_clone,
+    result_image,
+    prelaoder = $(".prelaoder"),
+    perc_display = $(".under-prelaoder");
+
+for (var i = 0; i < images_total_count; i++) {
+  image_clone = new Image();
+  image_clone.onload = iamge_loaded;
+  image_clone.onerror = iamge_loaded;
+  image_clone.src = images[i].src;
+}
+
+function iamge_loaded() {
+  $('body').css("overflow", "hidden");
+  images_loaded_count++;
+  result_image = 100 / images_total_count * images_loaded_count;
+
+  if (result_image >= 50) {
+    perc_display.cssBefore("border-right-color", "#116EEF");
+  }
+
+  if (result_image >= 75) {
+    perc_display.cssBefore("border-bottom-color", "#116EEF");
+  }
+
+  if (result_image == 100) {
+    perc_display.cssBefore("border-left-color", "#116EEF");
+  }
+
+  perc_display.html((result_image << 0) + '%');
+
+  if (images_loaded_count >= images_total_count) {
+    setTimeout(function () {
+      if (!prelaoder.hasClass('done')) {
+        prelaoder.addClass('done');
+        $('body').css("overflow", "");
+      }
+    }, 1000);
+  }
+}
+
 $(document).ready(function () {
   /* Для телефонов */
   var numOfClicks = 0;
@@ -30,64 +74,91 @@ $(document).ready(function () {
       $('.burger rect:nth-child(3)').css("opacity", "");
     }
   });
+  $(".open_lsit").on('click', function () {
+    ++numOfClicks;
+
+    if (numOfClicks % 2 !== 0) {
+      $(this).siblings(".contacts__country-item_group").css("display", "block");
+    } else {
+      $(this).siblings(".contacts__country-item_group").css("display", "");
+    }
+  });
 });
 $(document).ready(function () {
+  $('#size_block .heading').change(function () {
+    var option_name = $('option:selected', this).attr("name");
+
+    switch (option_name) {
+      case 'none':
+        $("#constructor_size680").css("display", "none");
+        $("#constructor_size1000").css("display", "none");
+        break;
+
+      case '680':
+        $("#constructor_size680").css("display", "block");
+        $("#constructor_size1000").css("display", "none");
+        break;
+
+      case '1000':
+        $("#constructor_size680").css("display", "none");
+        $("#constructor_size1000").css("display", "block");
+        break;
+    }
+  });
   maxSizeBlock($(".text_description-transfer"), 240, $(".text_description"));
   /* Active Menu */
 
-  maxSizeBlock($("#constructor_color"), 42, $("#color_block .list-constructor"));
-  maxSizeBlock($("#constructor_size"), 42, $("#size_block .list-constructor"));
-  maxSizeBlock($("#configuration_block"), 42, $("#configuration_block .list-constructor"));
-  maxSizeBlock($("#constructor_equipment"), 42, $("#equipment_block .list-constructor"));
-  maxSizeBlock($("#backlight"), 42, $("#backlight_block .list-constructor"));
+  var h_block_list_elements = 72;
+  maxSizeBlock($("#constructor_color"), h_block_list_elements, $("#color_block .list-constructor"));
+  maxSizeBlock($("#constructor_size680"), h_block_list_elements, $("#size_block .list-constructor"));
+  maxSizeBlock($("#constructor_size1000"), h_block_list_elements, $("#size_block .list-constructor"));
+  maxSizeBlock($("#constructor_configuration"), h_block_list_elements, $("#configuration_block .list-constructor"));
+  maxSizeBlock($("#constructor_equipment"), h_block_list_elements, $("#equipment_block .list-constructor"));
+  maxSizeBlock($("#backlight"), h_block_list_elements, $("#backlight_block .list-constructor"));
   /* #Active Menu# */
 
   /* Constructor */
   //('#constructor_color','#constructor_size','#constructor_configuration','#constructor_equipment','#constructor_backlight')
 
-  function backgroud() {
-    var list_background = "#constructor_color";
-    var listItem_background = ".color-items";
-    var listItemNumber_background = new Array(1, 2, 3, 4);
-    {
-      var btnColor = new Component(list_background, listItem_background, listItemNumber_background[0]);
-      var btnColor2 = new Component(list_background, listItem_background, listItemNumber_background[1]);
-      var btnColor3 = new Component(list_background, listItem_background, listItemNumber_background[2]);
-      var btnColor4 = new Component(list_background, listItem_background, listItemNumber_background[3]);
-      btnColor.defineButton.on('click', function () {
-        var act = new ActButton({
-          background: list_background,
-          block: '.edit_block',
-          value: $(this).attr('value'),
-          order: $(this).attr('data-order')
-        });
-        act.stylec(); //запись в поле с формой на отправку
+  function constructorAct(list, list_item) {
+    var btn = new Component(list, list_item);
+    btn.defineButton.on('click', function () {
+      var act = new ActButton({
+        mod: list,
+        block: '.edit_block',
+        value: $(this).attr('value'),
+        key: $(this).attr('data-key')
       });
-    }
+      act.stylec(); //запись в поле с формой на отправку
+    });
   }
 
-  backgroud();
+  constructorAct("#constructor_color", ".color-items");
+  constructorAct("#constructor_size680", ".text-items");
+  constructorAct("#constructor_size1000", ".text-items");
+  constructorAct("#configuration_block", ".text-items");
+  constructorAct("#constructor_equipment", ".text-items");
+  constructorAct("#constructor_backlight", ".color-items");
   /* #Constructor# */
 });
 /* 
  **Кнопки конструктора
- * передается значение обертки(котейнера) с кнопками(блоками)
+ * передается значение обертки(контейнера) с кнопками(блоками)
  *  
 */
 
 var Component = /*#__PURE__*/function () {
-  function Component(nameGroup, nameBlock, numb) {
+  function Component(nameGroup, nameBlock) {
     _classCallCheck(this, Component);
 
     this.nameGroup = nameGroup;
     this.nameBlock = nameBlock;
-    this.numb = numb;
   }
 
   _createClass(Component, [{
     key: "defineButton",
     get: function get() {
-      return $(this.nameGroup + ' ' + this.nameBlock + ":nth-child(" + this.numb + ")");
+      return $(this.nameGroup + ' ' + this.nameBlock);
     }
   }]);
 
@@ -98,75 +169,73 @@ var ActButton = /*#__PURE__*/function () {
   function ActButton(options) {
     _classCallCheck(this, ActButton);
 
-    this.background = options.background;
+    this.mod = options.mod;
     this.block = options.block;
     this.value = options.value;
-    this.order = options.order;
+    this.key = options.key;
   }
 
   _createClass(ActButton, [{
     key: "stylec",
     value: function stylec() {
-      console.log(this.order);
-      console.log(this.background);
-      var arrStyleBack = $(this.background).css('background-image').length; // none(4) 
+      /* Aquarium parameters */
+      var urlImageAquarium = "images/constructor/sets/";
+      var aquariumSizes680 = new Array('_90', '_130', '_150', '_200'); // h 680 mm
 
-      activeConstr(this.order, this.background, this.value, arrStyleBack);
+      var aquariumSizes1000 = new Array(212, 282, 395, 502, 635, 785); // h 1000 mm
+
+      var aquariumSets = new Array('Б.png', 'С.png', 'П.png');
+      var total_style_symbols = $(this.block).css('background-image').length; // none(4) 
+
+      var colors_total_count = new Array('черный', 'венге', 'орех', 'кедр', 'клен', 'ваниль', 'белый', 'патина', 'фиолет', 'красный');
+      console.log(this.mod);
+      console.log(this.key);
+      console.log("///////////");
+
+      switch (this.mod) {
+        case '#constructor_size680':
+          var sizeStyle = $(this.mod).css('display').length;
+          var sizeValue = $(this.mod).attr('data-key');
+
+          if (sizeStyle != 4 && sizeValue == 680) {
+            console.log(this.mod);
+            console.log(this.key);
+          }
+
+          break;
+
+        case '#constructor_size1000':
+          var sizeStyle = $(this.mod).css('display').length;
+          var sizeValue = $(this.mod).attr('data-key');
+
+          if (sizeStyle != 4 && sizeValue == 1000) {
+            console.log(this.mod);
+            console.log(this.key);
+          }
+
+          break;
+
+        case '#constructor_equipment':
+          if (this.key == "Б") {
+            console.log(this.mod);
+            console.log(this.key);
+          } else if (this.key == "С") {
+            console.log(this.mod);
+            console.log(this.key);
+          } else if (this.key == "П") {
+            console.log(this.mod);
+            console.log(this.key);
+          }
+
+          break;
+      }
     }
   }]);
 
   return ActButton;
 }();
-
-var XXX = /*#__PURE__*/function () {
-  function XXX(options) {
-    _classCallCheck(this, XXX);
-
-    this.element = options.element; // DOM
-
-    this.property = options.property; // value
-
-    this.selector = options.selector; // style
-
-    this.quantity = options.quantity; // none
-
-    this.mod = options.mod; // для подсветки
-  }
-
-  _createClass(XXX, [{
-    key: "showHideStyle",
-    value: function showHideStyle() {
-      if (this.quantity == 4) {
-        $(this.element).css(this.property, this.selector);
-        if (this.mod = 1) $(this.element).css('border', '0px');
-      } else {
-        $(this.element).css(this.property, '');
-        if (this.mod = 1) $(this.element).css('border', '');
-      }
-
-      console.log("Все работает! 2");
-    }
-  }]);
-
-  return XXX;
-}();
-
-function activeConstr(order, background, value, arrStyleBack) {
-  switch (order) {
-    case '1':
-      var propertyXXX = new XXX({
-        element: background,
-        property: 'background-image',
-        selector: 'url(/images/background/green.png)',
-        quantity: arrStyleBack,
-        mod: 1
-      });
-      propertyXXX.showHideStyle();
-      break;
-  }
-}
 /* 
- **Подставляет скролл, если высота привышает родителя 
+ **Подставляет скролл, если высота превышает родителя 
  * name - название блока, у которого берется высота
  * h - максимальная высота
  * block - блок которому будет применяться скролл
@@ -181,8 +250,6 @@ function maxSizeBlock(name, h, block) {
   }
 }
 
-$(document).ready(function () {//images/rating/stars.png
-});
 showImg($(".show_list-img"), "show-img", 1, 1);
 
 function rating(numb) {

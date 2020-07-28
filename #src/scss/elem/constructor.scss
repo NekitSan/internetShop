@@ -21,8 +21,7 @@
         margin-bottom: 10px;
 
         .constructor_part {
-            min-height: 215px;
-            max-height: 322px;
+            min-height: 440px;
         }
 
         .constructor_part:nth-child(1) {
@@ -119,10 +118,34 @@
         .edit_block {
             height: 220px;
             width: 72px;
-            background-image: url('../images/products/box.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+            img {
+                display: inline-block;
+                width: auto;
+                height: 100%;
+                margin: 0 auto;
+            }
         }
     }
+    select.heading {
+        cursor: pointer;
+        max-width: 170px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        text-align-last:center;
+        margin-bottom: 5px;
+    }
+    select.heading:hover {
+        border: 1px solid #000;
+        color: #116EEF;
+    }
+
+    #size_block {
+        #constructor_size680 {
+            display: none;
+        }
+        #constructor_size1000 {
+            display: none;
+        }
+    }
+    
 }
