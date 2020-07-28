@@ -138,26 +138,10 @@ $(document).ready(function () {
   maxSizeBlock($("#constructor_sets"), h_block_list_elements, $("#sets_block .list-constructor"));
   maxSizeBlock($("#constructor_color"), h_block_list_elements, $("#color_block .list-constructor"));
   maxSizeBlock($("#constructor_backlight"), h_block_list_elements, $("#backlight_block .list-constructor"));
-  /* 
-  **Подставляет скролл, если высота превышает родителя 
-  * name - название блока, у которого берется высота
-  * h - максимальная высота
-  * block - блок которому будет применяться скролл
-  */
-
-  function maxSizeBlock(name, h, block) {
-    var h_block = name.height();
-    console.log(h_block);
-
-    if (h_block > h) {
-      block.css("overflow-y", "scroll");
-    }
-  }
   /* #Active Menu# */
 
   /* Constructor */
   //('#constructor_color','#constructor_size','#constructor_configuration','#sets_block','#constructor_backlight')
-
 
   function constructorAct(list, list_item) {
     var btn = new Component(list, list_item);
@@ -309,7 +293,6 @@ var ActButton = /*#__PURE__*/function () {
         case '#backlight_block':
           $("#details-backlight").val(this.key);
           $("#constructor-block").css("background-image", 'url(' + this.value + ')');
-          $("#constructor-block").css("border", 'none');
           break;
       }
     }
@@ -317,6 +300,22 @@ var ActButton = /*#__PURE__*/function () {
 
   return ActButton;
 }();
+/* 
+**Подставляет скролл, если высота превышает родителя 
+* name - название блока, у которого берется высота
+* h - максимальная высота
+* block - блок которому будет применяться скролл
+*/
+
+
+function maxSizeBlock(name, h, block) {
+  var h_block = name.height();
+  console.log(h_block);
+
+  if (h_block > h) {
+    block.css("overflow-y", "scroll");
+  }
+}
 
 showImg($(".show_list-img"), "show-img", 1, 1);
 

@@ -701,7 +701,6 @@ header .menu ul .inner_menu .menu-item:hover {
   padding: 5px;
   margin-right: 10px;
   overflow: hidden;
-  border: 1px solid #000;
   text-align: center;
 }
 
@@ -726,6 +725,7 @@ header .menu ul .inner_menu .menu-item:hover {
 .main-block-constructor .constructor_part-block .constructor_part:nth-child(1) {
   width: 182px;
   max-width: 182px;
+  border: 1px solid #000;
 }
 
 .main-block-constructor .constructor_part-block .constructor_part:nth-child(2) {
@@ -773,6 +773,8 @@ header .menu ul .inner_menu .menu-item:hover {
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   background-color: #ddd;
 }
 
@@ -1487,6 +1489,16 @@ body::-webkit-scrollbar-thumb {
   .search input {
     width: 50px;
     margin: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    min-height: 1400px;
+  }
+
+  .main-block-constructor .tabBar {
+    height: 550px;
   }
 }
 

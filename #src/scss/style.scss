@@ -20,6 +20,19 @@
 @import "elem/contacts";
 @import "elem/reviews";
 
+@media (max-width: 400px) {
+	body
+	{
+		min-height: 1400px;
+	}
+	.main-block-constructor {
+		.tabBar
+		{
+			height: 550px;
+		}
+	}
+}
+
 @media only screen and  (max-width: 670px) {
 	.search {
 		input {

@@ -8,7 +8,6 @@
         padding: 5px;
         margin-right: 10px;
         overflow: hidden;
-        border: 1px solid #000;
         text-align: center;
     }
     .constructor_part:last-child {
@@ -27,6 +26,7 @@
         .constructor_part:nth-child(1) {
             width: 182px;
             max-width: 182px;
+            border: 1px solid #000;
         }
 
         .constructor_part:nth-child(2) {
@@ -68,13 +68,13 @@
         .tabBar_group {
             width: 100%;
             justify-content: left;
+            flex-wrap: wrap;
             background-color: #ddd;
             .tabBar_group-item {
                 font-size: 22px;
                 padding: 10px 15px;
             }
         }
-
 
         form, input, button {
             vertical-align: baseline;
