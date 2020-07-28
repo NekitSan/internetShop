@@ -139,6 +139,41 @@
 	}
 }
 
+
+@media only screen and (max-width: 900px)
+{
+	.main-block-constructor 
+	{
+		.active_menu {
+			.constructor_modules {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.main-block-constructor 
+	{
+		.active_menu {
+			width: auto;
+		}
+	}
+
+	.active_menu {
+		.active_menu-group {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			.constructor_modules {
+				margin-right: 10px;
+				margin-bottom: 10px;
+			}
+			.constructor_modules:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
 @media only screen and (min-width: 1000px) {
 	.product-list_item {
 		width: 20%;

@@ -265,6 +265,11 @@ body {
     -webkit-user-select: none;
 }
 
+.none {
+    background-color: #bbb;
+    outline: 2px dashed #fff;
+    outline-offset: -10px
+}
 .color-items {
     width: 32px;
     height: 32px;
@@ -281,6 +286,9 @@ body {
 }
 .color-items:hover {
     border: solid 1px #000;
+}
+.color-items:focus {
+    border: solid 1px #116EEF;
 }
 .color-items:last-child {
     margin-right: 0;

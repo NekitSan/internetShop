@@ -456,6 +456,12 @@ body {
   -webkit-user-select: none;
 }
 
+.none {
+  background-color: #bbb;
+  outline: 2px dashed #fff;
+  outline-offset: -10px;
+}
+
 .color-items {
   width: 32px;
   height: 32px;
@@ -474,6 +480,10 @@ body {
 
 .color-items:hover {
   border: solid 1px #000;
+}
+
+.color-items:focus {
+  border: solid 1px #116EEF;
 }
 
 .color-items:last-child {
@@ -722,74 +732,113 @@ header .menu ul .inner_menu .menu-item:hover {
   width: 920px;
 }
 
-.main-block-constructor .constructor_part-block .constructor_part-active_menu .active_menu {
-  float: left;
+.main-block-constructor .active_menu {
   width: 170px;
   min-height: 58px;
 }
 
-.main-block-constructor .constructor_part-block .constructor_part-active_menu .active_menu .constructor_modules {
+.main-block-constructor .active_menu h2 {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.main-block-constructor .active_menu .constructor_modules {
+  max-width: 170px;
   margin-bottom: 5px;
 }
 
-.main-block-constructor .constructor_part-block .constructor_part-active_menu .active_menu .constructor_modules:last-child {
+.main-block-constructor .active_menu .constructor_modules:last-child {
   margin-bottom: 0;
+}
+
+.main-block-constructor #constructor_size680,
+.main-block-constructor #constructor_size1000,
+.main-block-constructor #constructor_sets {
+  height: auto;
 }
 
 .main-block-constructor #menu-description {
   border: none;
 }
 
-.main-block-constructor .active_menu-description {
-  width: 920px;
+.main-block-constructor .tabBar {
+  position: relative;
+  max-width: 920px;
+  height: 262px;
   margin: 0 auto;
 }
 
-.main-block-constructor .active_menu-description .text_description-h2 {
+.main-block-constructor .tabBar .tabBar_group {
+  width: 100%;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  background-color: #ddd;
+}
+
+.main-block-constructor .tabBar .tabBar_group .tabBar_group-item {
   font-size: 22px;
-  margin-bottom: 10px;
+  padding: 10px 15px;
 }
 
-.main-block-constructor .active_menu-description .text_description {
-  max-height: 280px;
-  margin-left: 10px;
-  border-right: 1px solid #ddd;
-  text-align: left;
-  overflow: hidden;
+.main-block-constructor .tabBar form,
+.main-block-constructor .tabBar input,
+.main-block-constructor .tabBar button {
+  vertical-align: baseline;
+  font-family: inherit;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  outline: 0;
+  width: 0;
+  height: 0;
+  padding: 0;
+  margin: 0;
 }
 
-.main-block-constructor .active_menu-description .text_description .text_description-transfer {
-  max-width: 670px;
-  line-height: 1.3em;
-}
-
-.main-block-constructor .active_menu-description .text_details {
-  text-align: left;
-  margin-left: auto;
-  margin-right: 10px;
-}
-
-.main-block-constructor .active_menu-description .text_details .description_close {
-  padding: 3px;
-  border-radius: 50px;
-  vertical-align: super;
-  font-size: 12px;
-}
-
-.main-block-constructor .active_menu-description .text_details .description_close:hover {
-  background-color: #333;
-  color: #fff;
-}
-
-.main-block-constructor .active_menu-description .text_details .button {
-  margin-top: 20px;
-  padding: 5px;
+.main-block-constructor .tabBar .text_description,
+.main-block-constructor .tabBar .text_details {
   width: auto;
+  height: auto;
+}
+
+.main-block-constructor .tabBar .text_details label {
+  font-size: 18px;
+}
+
+.main-block-constructor .tabBar .text_details input {
+  max-width: 140px;
+  width: auto;
+  height: auto;
+  padding: 5px 5px;
   text-align: center;
 }
 
-.main-block-constructor .active_menu-description .text-des_det {
+.main-block-constructor .tabBar .text_details input:disabled {
+  color: #000;
+  background-color: transparent;
+}
+
+.main-block-constructor .tabBar .text_details button {
+  width: auto;
+  height: auto;
+  padding: 10px 15px;
   margin-top: 10px;
+}
+
+.main-block-constructor .tabBar .text-des_det {
+  position: absolute;
+  margin-top: 10px;
+  text-align: left;
+  min-width: 200px;
+  min-height: 220px;
+}
+
+.main-block-constructor .tabBar .menu_parameters {
+  position: absolute;
+  margin-top: 10px;
+  min-width: 200px;
+  min-height: 220px;
 }
 
 .main-block-constructor #constructor-block {
@@ -824,32 +873,32 @@ header .menu ul .inner_menu .menu-item:hover {
 .main-block-constructor select.heading {
   cursor: pointer;
   max-width: 170px;
-  border: 1px solid #ddd;
-  border-radius: 3px;
+  border-bottom: 1px solid #ddd;
   -moz-text-align-last: center;
        text-align-last: center;
   margin-bottom: 5px;
 }
 
 .main-block-constructor select.heading:hover {
-  border: 1px solid #000;
+  border-bottom: 1px solid #000;
   color: #116EEF;
 }
 
-.main-block-constructor #size_block #constructor_size680 {
-  display: none;
+.main-block-constructor .disable_button {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
 }
 
-.main-block-constructor #size_block #constructor_size1000 {
-  display: none;
+.main-block-constructor .item_parameters {
+  background-color: #ddd;
 }
 
-.main-block-constructor #color_block #constructor_color_gloss {
-  display: none;
-}
-
-.main-block-constructor #color_block #constructor_color_matt {
-  display: none;
+.main-block-constructor .active {
+  background-color: #116EEF;
+  color: #fff;
 }
 
 .product-menu_variation {
@@ -1293,6 +1342,36 @@ body::-webkit-scrollbar-thumb {
   .container {
     width: 1200px;
     margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .main-block-constructor .active_menu .constructor_modules {
+    margin-bottom: 0;
+  }
+
+  .main-block-constructor .active_menu {
+    width: auto;
+  }
+
+  .active_menu .active_menu-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .active_menu .active_menu-group .constructor_modules {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .active_menu .active_menu-group .constructor_modules:last-child {
+    margin-right: 0;
   }
 }
 

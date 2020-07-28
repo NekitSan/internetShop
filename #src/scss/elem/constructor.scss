@@ -32,76 +32,103 @@
         .constructor_part:nth-child(2) {
             width: 920px;
         }
+    }
+    .active_menu {
+        width: 170px;
+        min-height: 58px;
 
-        .constructor_part-active_menu {
-            .active_menu {
-                float: left;
-                width: 170px;
-                min-height: 58px;
-
-                .constructor_modules {
-                    margin-bottom: 5px;
-                }
-                .constructor_modules:last-child {
-                    margin-bottom: 0;
-                }
-            }
+        h2 {
+            padding: 10px;
+            margin-bottom: 10px;                
         }
+
+        .constructor_modules {
+            max-width: 170px;
+            margin-bottom: 5px;
+        }
+        .constructor_modules:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    #constructor_size680, #constructor_size1000, #constructor_sets {
+        height: auto;
     }
 
     #menu-description {
         border: none;
     }
 
-    .active_menu-description {
-        width: 920px;
+    .tabBar {
+        position: relative;
+        max-width: 920px;
+        height: 262px;
         margin: 0 auto;
 
-        .text_description-h2 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .text_description {
-            max-height: 280px;
-            margin-left: 10px;
-            border-right: 1px solid #ddd;
-            text-align: left;
-            overflow: hidden;
-
-            .text_description-transfer {
-                max-width: 670px;
-                line-height: 1.3em;
+        .tabBar_group {
+            width: 100%;
+            justify-content: left;
+            background-color: #ddd;
+            .tabBar_group-item {
+                font-size: 22px;
+                padding: 10px 15px;
             }
         }
 
+
+        form, input, button {
+            vertical-align: baseline;
+            font-family: inherit;
+            font-weight: inherit;
+            font-style: inherit;
+            font-size: 100%;
+            outline: 0;
+            width: 0;
+            height: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        .text_description, .text_details {
+            width: auto;
+            height: auto;
+        } 
         .text_details {
-            text-align: left;
-            margin-left: auto;
-            margin-right: 10px;
-
-            .description_close {
-                padding: 3px;
-                border-radius: 50px;
-                vertical-align:super;
-                font-size: 12px;
+            label {
+                font-size: 18px;
             }
-
-            .description_close:hover {
-                background-color: #333;
-                color: #fff;
-            }
-
-            .button {
-                margin-top: 20px;
-                padding: 5px;
+            input {
+                max-width: 140px;
                 width: auto;
+                height: auto;
+                padding: 5px 5px;
                 text-align: center;
+            }
+            input:disabled {
+                color: #000;
+                background-color: transparent;
+            }
+            button {
+                width: auto;
+                height: auto;
+                padding: 10px 15px;
+                margin-top: 10px;
             }
         }
 
         .text-des_det {
+            position: absolute;
             margin-top: 10px;
+            text-align: left;
+            min-width: 200px;
+            min-height: 220px;
+        }
+
+        .menu_parameters {
+            position: absolute;
+            margin-top: 10px;
+            min-width: 200px;
+            min-height: 220px;
         }
     }
 
@@ -129,32 +156,30 @@
     select.heading {
         cursor: pointer;
         max-width: 170px;
-        border: 1px solid #ddd;
-        border-radius: 3px;
+        border-bottom: 1px solid #ddd;
         text-align-last:center;
         margin-bottom: 5px;
     }
     select.heading:hover {
-        border: 1px solid #000;
+        border-bottom: 1px solid #000;
         color: #116EEF;
     }
 
-    #size_block {
-        #constructor_size680 {
-            display: none;
-        }
-        #constructor_size1000 {
-            display: none;
-        }
+    .disable_button {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
     }
 
-    #color_block {
-        #constructor_color_gloss {
-            display: none;
-        }
-        #constructor_color_matt {
-            display: none;
-        }
+    .item_parameters {
+        background-color: #ddd;
+    }
+
+    .active {
+        background-color: #116EEF;
+        color: #fff;
     }
     
 }

@@ -3,87 +3,82 @@
         <div class="constructor_part">
             <div class="constructor_part-active_menu">
                 <div class="active_menu">
-                    <div class="constructor_modules" id="size_block">
-                        <article class="heading">Объем аквариума</article>
+                    <h2 class="item_parameters">Параметры</h2>
+                    <div class="active_menu-group">
+                        <div class="constructor_modules" id="size_block">
+                            <article class="heading">Объем аквариума:</article>
+                                <select class="heading">
+                                    <option name="none" value="none">Выберите объем</option>
+                                    <option name="680" value="680">с высотой 680 мм</option>
+                                    <option name="1000" value="1000">с высотой 1000 мм</option>
+                                </select>
+                                <div class="list-constructor scroll-list _size680">
+                                    <div class="list items disable_button" id="constructor_size680" data-mod="680">
+                                        <div class="text-items" data-key="90" data-diam="400" value="90">90</div>
+                                        <div class="text-items" data-key="130" data-diam="500" value="130">130</div>
+                                        <div class="text-items" data-key="150" data-diam="520" value="150">150</div>
+                                        <div class="text-items" data-key="200" data-diam="600" value="200">200</div>
+                                    </div>
+                                </div>
+                                <div class="list-constructor scroll-list _size1000">
+                                    <div class="list items disable_button" id="constructor_size1000" data-mod="1000">
+                                        <div class="text-items" data-key="212" data-diam="520" value="212">212</div>
+                                        <div class="text-items" data-key="282" data-diam="600" value="282">282</div>
+                                        <div class="text-items" data-key="395" data-diam="700" value="395">395</div>
+                                        <div class="text-items" data-key="502" data-diam="800" value="502">502</div>
+                                        <div class="text-items" data-key="635" data-diam="900" value="635">635</div>
+                                        <div class="text-items" data-key="785" data-diam="1000" value="785">785</div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="constructor_modules" id="sets_block">
+                            <article class="heading">Комплектация:</article>
+                            <div class="list-constructor scroll-list">
+                                <div class="list items" id="constructor_sets">
+                                    <div class="text-items" data-key="Б" value="Базованя">Базовая</div>
+                                    <div class="text-items" data-key="С" value="Стандарт">Стандарт</div>
+                                    <div class="text-items" data-key="П" value="Премиум">Премиум</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="constructor_modules" id="color_block">
+                            <article class="heading">Цвет тумбы:</article>
                             <select class="heading">
-                                <option name="none" value="none">Выберите объем</option>
-                                <option name="680" value="680">Объем аквариума с высотой 680 мм</option>
-                                <option name="1000" value="1000">Объем аквариума с высотой 1000 мм</option>
+                                <option name="none" value="none">Выберите покрытие</option>
+                                <option name="gloss" value="gloss">Глянцевое</option>
+                                <option name="matt" value="matt">Матовое</option>
                             </select>
                             <div class="list-constructor scroll-list">
-                                <div class="list items" id="constructor_size680" data-mod="680">
-                                    <div class="text-items" data-key="90" data-diam="400" value="90">90</div>
-                                    <div class="text-items" data-key="130" data-diam="500" value="130">130</div>
-                                    <div class="text-items" data-key="150" data-diam="520" value="150">150</div>
-                                    <div class="text-items" data-key="200" data-diam="600" value="200">200</div>
+                                <div class="list constructor_color gloss disable_button" id="constructor_color" data-coating="gloss">
+                                    <div class="color-items" data-key="черный" title="черный"><img src="images/constructor/color/черный.jpg" alt="Глянцевый цвет корпуса: черный"></div>
+                                    <div class="color-items" data-key="кедр" title="кедр"><img src="images/constructor/color/кедр.jpg" alt="Глянцевый цвет корпуса: кедр"></div>
+                                    <div class="color-items" data-key="ваниль" title="ваниль"><img src="images/constructor/color/ваниль.jpg" alt="Глянцевый цвет корпуса: ваниль"></div>
+                                    <div class="color-items" data-key="белый" title="белый"><img src="images/constructor/color/белый.jpg" alt="Глянцевый цвет корпуса: белый"></div>
+                                    <div class="color-items" data-key="фиолет" title="фиолет"><img src="images/constructor/color/фиолет.jpg" alt="Глянцевый цвет корпуса: фиолет"></div>
+                                    <div class="color-items" data-key="красный" title="красный"><img src="images/constructor/color/красный.jpg" alt="Глянцевый цвет корпуса: красный"></div>
                                 </div>
                             </div>
                             <div class="list-constructor scroll-list">
-                                <div class="list items" id="constructor_size1000" data-mod="1000">
-                                    <div class="text-items" data-key="212" data-diam="520" value="212">212</div>
-                                    <div class="text-items" data-key="282" data-diam="600" value="282">282</div>
-                                    <div class="text-items" data-key="395" data-diam="700" value="395">395</div>
-                                    <div class="text-items" data-key="502" data-diam="800" value="502">502</div>
-                                    <div class="text-items" data-key="635" data-diam="900" value="635">635</div>
-                                    <div class="text-items" data-key="785" data-diam="1000" value="785">785</div>
+                                <div class="list constructor_color matt disable_button" id="constructor_color" data-coating="matt">
+                                    <div class="color-items" data-key="венге" title="венге"><img src="images/constructor/color/венге.jpg" alt="Матовый цвет корпуса: венге"></div>
+                                    <div class="color-items" data-key="орех" title="орех"><img src="images/constructor/color/орех.jpg" alt="Матовый цвет корпуса: орех"></div>
+                                    <div class="color-items" data-key="клен" title="клен"><img src="images/constructor/color/клен.jpg" alt="Матовый цвет корпуса: клен"></div>
+                                    <div class="color-items" data-key="патина" title="патина"><img src="images/constructor/color/патина.jpg" alt="Матовый цвет корпуса: патина"></div>
                                 </div>
                             </div>
-                    </div>
-                    <div class="constructor_modules" id="equipment_block">
-                        <article class="heading">Комплектация</article>
-                        <div class="list-constructor scroll-list">
-                            <div class="list items" id="constructor_equipment">
-                                <div class="text-items" data-key="Б" value="Базованя">Базовая</div>
-                                <div class="text-items" data-key="С" value="Стандарт">Стандарт</div>
-                                <div class="text-items" data-key="П" value="Премиум">Премиум</div>
-                            </div>
+                            <!-- images/constructor/color/черный.jpg -->
                         </div>
-                    </div>
-                    <div class="constructor_modules" id="configuration_block">
-                        <article class="heading">Форма корпуса</article>
-                        <div class="list-constructor scroll-list">
-                            <div class="list items" id="constructor_configuration">
-                                <div class="text-items" data-key="Ц" value="Цилиндрический">Цилиндрическая</div>
-                                <!-- <div class="text-items" data-key="П" value="Прямоугольный">Прямоугольная</div> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="constructor_modules" id="color_block">
-                        <article class="heading">Цвет тумбы</article>
-                        <select class="heading">
-                            <option name="none" value="none">Выберите покрытие</option>
-                            <option name="gloss" value="gloss">С глянцевым покрытием</option>
-                            <option name="matt" value="matt">Матовый</option>
-                        </select>
-                        <div class="list-constructor scroll-list">
-                            <div class="list constructor_color" id="constructor_color_gloss" data-coating="gloss">
-                                <div class="color-items" data-key="черный" title="черный"><img src="images/constructor/color/черный.jpg" alt="черный"></div>
-                                <div class="color-items" data-key="кедр" title="кедр"><img src="images/constructor/color/кедр.jpg" alt="кедр"></div>
-                                <div class="color-items" data-key="ваниль" title="ваниль"><img src="images/constructor/color/ваниль.jpg" alt="ваниль"></div>
-                                <div class="color-items" data-key="белый" title="белый"><img src="images/constructor/color/белый.jpg" alt="белый"></div>
-                                <div class="color-items" data-key="фиолет" title="фиолет"><img src="images/constructor/color/фиолет.jpg" alt="фиолет"></div>
-                                <div class="color-items" data-key="красный" title="красный"><img src="images/constructor/color/красный.jpg" alt="красный"></div>
-                            </div>
-                        </div>
-                        <div class="list-constructor scroll-list">
-                            <div class="list constructor_color" id="constructor_color_matt" data-coating="matt">
-                                <div class="color-items" data-key="венге" title="венге"><img src="images/constructor/color/венге.jpg" alt="венге"></div>
-                                <div class="color-items" data-key="орех" title="орех"><img src="images/constructor/color/орех.jpg" alt="орех"></div>
-                                <div class="color-items" data-key="клен" title="клен"><img src="images/constructor/color/клен.jpg" alt="клен"></div>
-                                <div class="color-items" data-key="патина" title="патина"><img src="images/constructor/color/патина.jpg" alt="патина"></div>
-                            </div>
-                        </div>
-                        <!-- images/constructor/color/черный.jpg -->
-                    </div>
-                    <div class="constructor_modules" id="backlight_block">
-                        <article class="heading">Подсветка корпуса</article>
-                        <div class="list-constructor scroll-list">
-                            <div class="list" id="constructor_backlight">
-                                <div class="color-items" data-key="Синяя" title="Синяя" value="images/constructor/background/blue.png"><img src="images/constructor/background/blue.png" alt="blue"></div>
-                                <div class="color-items" data-key="Зеленая" title="Зеленая" value="images/constructor/background/green.png"><img src="images/constructor/background/green.png" alt="green"></div>
-                                <div class="color-items" data-key="Оранжевая" title="Оранжевая" value="images/constructor/background/orange.png"><img src="images/constructor/background/orange.png" alt="orange"></div>
-                                <div class="color-items" data-key="Красная" title="Красная" value="images/constructor/background/red.png"><img src="images/constructor/background/red.png" alt="red"></div>
-                                <div class="color-items global-img-boxs" title="RGB" data-key="images/constructor/background/rgb.jpg" value="RGB"><img src="images/constructor/background/rgb.jpg" alt="RGB"></div>
+                        <div class="constructor_modules" id="backlight_block">
+                            <article class="heading">Подсветка корпуса:</article>
+                            <div class="list-constructor scroll-list">
+                                <div class="list" id="constructor_backlight">
+                                    <div class="color-items none" data-key="отсуствует" title="отсуствует" value="отсуствует" tabindex="0" autofocus></div>
+                                    <div class="color-items" data-key="Синяя" title="Синяя" value="images/constructor/background/blue.png" tabindex="0"><img src="images/constructor/background/blue.png" alt="Синяя подстветка"></div>
+                                    <div class="color-items" data-key="Зеленая" title="Зеленая" value="images/constructor/background/green.png" tabindex="0"><img src="images/constructor/background/green.png" alt="Зеленая подстветка"></div>
+                                    <div class="color-items" data-key="Оранжевая" title="Оранжевая" value="images/constructor/background/orange.png" tabindex="0"><img src="images/constructor/background/orange.png" alt="Оранжевая подстветка"></div>
+                                    <div class="color-items" data-key="Красная" title="Красная" value="images/constructor/background/red.png" tabindex="0"><img src="images/constructor/background/red.png" alt="Красная подстветка"></div>
+                                    <div class="color-items global-img-boxs" title="RGB" data-key="RGB" value="images/constructor/background/rgb.jpg" tabindex="0"><img src="images/constructor/background/rgb.jpg" alt="RGB подстветка"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -91,16 +86,20 @@
             </div>
         </div>
         <div class="constructor_part" id="constructor-block">
-            <div class="edit_block" data-mod="" data-size="" data-set="" data-coating="" data-color="" data-config="" data-url="">
+            <div class="edit_block" data-mod="680" data-size="90" data-set="Б" data-color="черный" data-url="images/constructor/sets/черный_90">
                 <img id="edit_block-image" src="images/constructor/sets/черный_90Б.png" alt="Аквариум">
             </div>
             <div class="form_send"></div>
         </div>
     </div>
     <div class="constructor_part position-box-center-horizon" id="menu-description">
-        <div class="active_menu-description position-box-center-horizon">
-            <div class="text_description text-des_det scroll-description">
-                <h2 class="text_description-h2">Описание</h2>
+        <div class="tabBar">
+            <ul class="tabBar_group position-box-center-horizon">
+                <li class="tabBar_group-item items" id="item_parameters">Параметры</li>
+                <li class="tabBar_group-item items" id="item_description">Описание</li>
+                <li class="tabBar_group-item items" id="item_creat">Создать</li>
+            </ul>
+            <div class="text_description text-des_det disable_button">
                 <div class="text_description-transfer">
                     Высота комплекса – 1550мм, диаметр 400мм.
                     <br>
@@ -113,26 +112,37 @@
                     <div>5) Внутренняя система фильтрации с функцией подачи воздуха (фильтр-помпа)</div>
                 </div>
             </div>
-            <div class="text_details text-des_det">
-                <h2 class="text_description-h2">Детали</h2>
-                <div class="text_description-size">
-                    Объем при высоте <span id="description-height">0</span> мм: <span id="description-size">0</span>
+            <form class="text_details text-des_det disable_button">
+                <div class="text_details-group">
+                    <div class="text_details-group_item">
+                        <label>Объем при высоте -</label>
+                        <input size='1' type="text" value="680" disabled id="details-height">
+                        <span>мм:</span>
+                        <input size='1' type="text" value="90" disabled id="details-volume">
+                        л<span style="vertical-align: 5px; font-size: 14px;">3</span>
+                    </div>
+                    <div class="text_details-group_item">
+                        <label>Комплектация:</label>
+                        <input size='5' type="text" value="Базовая" disabled id="details-sets">
+                    </div>
+                    <div class="text_details-group_item">
+                        <label>Цвет тумбы:</label>
+                        <input size='4' type="text" value="Глянец" disabled id="details-coating">
+                         - <input size='4' type="text" value="черный" disabled id="details-color">
+                    </div>
+                    <div class="text_details-group_item">
+                        <label>Форма:</label>
+                        <input size='12' type="text" value="Цилиндрический" disabled id="details-configuration">
+                    </div>
+                    <div class="text_details-group_item">
+                        <label>Подсветка:</label>
+                        <input size='8' type="text" value="Отсутствует" disabled id="details-backlight">
+                    </div>
                 </div>
-                <div class="text_description-equipment">
-                    Комплектация: <span id="description-equipment"></span>
-                </div>
-                <div class="text_description-color">
-                    Цвет тумбы: <span id="description-color"></span>
-                </div>
-                <div class="text_description-configuration">
-                    Форма: <span id="description-configuration"></span>
-                </div>
-                <div class="text_description-backlight">
-                    Подсветка: <span id="description-backlight"></span>
-                </div>
-                <div class="button items">Заказать</div>
+                <button class="button items">Заказать</button>
+            </form>
+            <div class="menu_parameters disable_button">
             </div>
-            <div class="clear"></div>
         </div>
     </div>
 </main>

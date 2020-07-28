@@ -41,23 +41,34 @@ $(document).ready(function () {
   });
 });
 $(document).ready(function () {
+  var display_width = $(document).width();
+
+  if (display_width < 900) {
+    $(".constructor_part:nth-child(1)").addClass("disable_button");
+    $('.item_parameters').addClass("disable_button");
+    $(".menu_parameters").append($(".constructor_part:nth-child(1) .active_menu"));
+  } else {
+    $(".item_parameters").addClass("active");
+    $("#item_parameters").addClass("active");
+  }
+
   $('#size_block .heading').change(function () {
     var option_name = $('option:selected', this).attr("name");
 
     switch (option_name) {
       case 'none':
-        $("#constructor_size680").css("display", "none");
-        $("#constructor_size1000").css("display", "none");
+        $("#constructor_size680").addClass("disable_button");
+        $("#constructor_size1000").addClass("disable_button");
         break;
 
       case '680':
-        $("#constructor_size680").css("display", "block");
-        $("#constructor_size1000").css("display", "none");
+        $("#constructor_size680").removeClass("disable_button");
+        $("#constructor_size1000").addClass("disable_button");
         break;
 
       case '1000':
-        $("#constructor_size680").css("display", "none");
-        $("#constructor_size1000").css("display", "block");
+        $("#constructor_size1000").removeClass("disable_button");
+        $("#constructor_size680").addClass("disable_button");
         break;
     }
   });
@@ -66,18 +77,55 @@ $(document).ready(function () {
 
     switch (option_name) {
       case 'none':
-        $("#constructor_color_gloss").css("display", "none");
-        $("#constructor_color_matt").css("display", "none");
+        $(".matt").addClass("disable_button");
+        $(".gloss").addClass("disable_button");
+        $("#details-coating").val('Глянец');
         break;
 
       case 'gloss':
-        $("#constructor_color_gloss").css("display", "block");
-        $("#constructor_color_matt").css("display", "none");
+        $(".gloss").removeClass("disable_button");
+        $(".matt").addClass("disable_button");
+        $("#details-coating").val('Глянец');
         break;
 
       case 'matt':
-        $("#constructor_color_gloss").css("display", "none");
-        $("#constructor_color_matt").css("display", "block");
+        $(".matt").removeClass("disable_button");
+        $(".gloss").addClass("disable_button");
+        $("#details-coating").val('Матовое');
+        break;
+    }
+  });
+  $('.tabBar_group-item').on('click', function () {
+    var option_name = $(this).attr("id");
+    var display_width = $(document).width();
+    console.log('display_width = ' + display_width);
+
+    switch (option_name) {
+      case 'item_parameters':
+        $(this).siblings('.tabBar_group-item').removeClass("active");
+        $(".item_parameters").addClass("active");
+        $(this).addClass("active");
+        $(".menu_parameters").removeClass("disable_button");
+        $(".text_description").addClass("disable_button");
+        $(".text_details").addClass("disable_button");
+        break;
+
+      case 'item_description':
+        $(this).siblings('.tabBar_group-item').removeClass("active");
+        $(".item_parameters").removeClass("active");
+        $(this).addClass("active");
+        $(".menu_parameters").addClass("disable_button");
+        $(".text_description").removeClass("disable_button");
+        $(".text_details").addClass("disable_button");
+        break;
+
+      case 'item_creat':
+        $(this).siblings('.tabBar_group-item').removeClass("active");
+        $(".item_parameters").removeClass("active");
+        $(this).addClass("active");
+        $(".menu_parameters").addClass("disable_button");
+        $(".text_details").removeClass("disable_button");
+        $(".text_description").addClass("disable_button");
         break;
     }
   });
@@ -85,16 +133,31 @@ $(document).ready(function () {
   /* Active Menu */
 
   var h_block_list_elements = 72;
+  maxSizeBlock($("#constructor_size680"), h_block_list_elements, $("._size680"));
+  maxSizeBlock($("#constructor_size1000"), h_block_list_elements, $("._size1000"));
+  maxSizeBlock($("#constructor_sets"), h_block_list_elements, $("#sets_block .list-constructor"));
   maxSizeBlock($("#constructor_color"), h_block_list_elements, $("#color_block .list-constructor"));
-  maxSizeBlock($("#constructor_size680"), h_block_list_elements, $("#size_block .list-constructor"));
-  maxSizeBlock($("#constructor_size1000"), h_block_list_elements, $("#size_block .list-constructor"));
-  maxSizeBlock($("#constructor_configuration"), h_block_list_elements, $("#configuration_block .list-constructor"));
-  maxSizeBlock($("#constructor_equipment"), h_block_list_elements, $("#equipment_block .list-constructor"));
-  maxSizeBlock($("#backlight"), h_block_list_elements, $("#backlight_block .list-constructor"));
+  maxSizeBlock($("#constructor_backlight"), h_block_list_elements, $("#backlight_block .list-constructor"));
+  /* 
+  **Подставляет скролл, если высота превышает родителя 
+  * name - название блока, у которого берется высота
+  * h - максимальная высота
+  * block - блок которому будет применяться скролл
+  */
+
+  function maxSizeBlock(name, h, block) {
+    var h_block = name.height();
+    console.log(h_block);
+
+    if (h_block > h) {
+      block.css("overflow-y", "scroll");
+    }
+  }
   /* #Active Menu# */
 
   /* Constructor */
-  //('#constructor_color','#constructor_size','#constructor_configuration','#constructor_equipment','#constructor_backlight')
+  //('#constructor_color','#constructor_size','#constructor_configuration','#sets_block','#constructor_backlight')
+
 
   function constructorAct(list, list_item) {
     var btn = new Component(list, list_item);
@@ -113,8 +176,7 @@ $(document).ready(function () {
   constructorAct("#constructor_color", ".color-items");
   constructorAct("#constructor_size680", ".text-items");
   constructorAct("#constructor_size1000", ".text-items");
-  constructorAct("#configuration_block", ".text-items");
-  constructorAct("#constructor_equipment", ".text-items");
+  constructorAct("#sets_block", ".text-items");
   constructorAct("#backlight_block", ".color-items");
   /* #Constructor# */
 });
@@ -159,32 +221,30 @@ var ActButton = /*#__PURE__*/function () {
       /* Aquarium parameters */
       switch (this.mod) {
         case '#constructor_size680':
-          var sizeStyle = $(this.mod).css('display').length;
           var sizeValue = $(this.mod).attr('data-mod');
 
-          if (sizeStyle != 4 && sizeValue == 680) {
+          if (sizeValue == 680) {
             $(this.block).attr("data-mod", sizeValue);
             $(this.block).attr("data-size", this.key);
-            $("#description-height").html(sizeValue);
-            $("#description-size").html(this.key);
+            $("#details-height").val(sizeValue);
+            $("#details-volume").val(this.key);
           }
 
           break;
 
         case '#constructor_size1000':
-          var sizeStyle = $(this.mod).css('display').length;
           var sizeValue = $(this.mod).attr('data-mod');
 
-          if (sizeStyle != 4 && sizeValue == 1000) {
+          if (sizeValue == 1000) {
             $(this.block).attr("data-mod", sizeValue);
             $(this.block).attr("data-size", this.key);
-            $("#description-height").html(sizeValue);
-            $("#description-size").html(this.key);
+            $("#details-height").val(sizeValue);
+            $("#details-volume").val(this.key);
           }
 
           break;
 
-        case '#constructor_equipment':
+        case '#sets_block':
           if ($(this.block).attr("data-color") != "") {
             var dataURL = $(this.block).attr("data-url");
 
@@ -192,115 +252,64 @@ var ActButton = /*#__PURE__*/function () {
               if (this.key == "Б") {
                 $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
                 $(this.block + ' img').attr("src", dataURL + this.key + '.png');
-                $("#description-equipment").html(this.value);
                 $(this.block).attr("data-set", this.key);
+                $("#details-sets").val(this.value);
               } else if (this.key == "С") {
                 $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
                 $(this.block + ' img').attr("src", dataURL + this.key + '.png');
-                $("#description-equipment").html(this.value);
                 $(this.block).attr("data-set", this.key);
+                $("#details-sets").val(this.value);
               } else if (this.key == "П") {
                 $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
                 $(this.block + ' img').attr("src", dataURL + this.key + '.png');
-                $("#description-equipment").html(this.value);
                 $(this.block).attr("data-set", this.key);
+                $("#details-sets").val(this.value);
               }
             } else if ($(this.block).attr("data-mod") == 1000) {
               if (this.key == "Б") {
                 $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
                 $(this.block + ' img').attr("src", dataURL + this.key + '.png');
-                $("#description-equipment").html(this.value);
                 $(this.block).attr("data-set", this.key);
+                $("#details-sets").val(this.value);
               } else if (this.key == "С") {
                 $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
                 $(this.block + ' img').attr("src", dataURL + this.key + '.png');
-                $("#description-equipment").html(this.value);
                 $(this.block).attr("data-set", this.key);
+                $("#details-sets").val(this.value);
               } else if (this.key == "П") {
                 $(this.block + ' source').attr("srcset", dataURL + this.key + '.webp');
                 $(this.block + ' img').attr("src", dataURL + this.key + '.png');
-                $("#description-equipment").html(this.value);
                 $(this.block).attr("data-set", this.key);
+                $("#details-sets").val(this.value);
               }
             }
-          } else {
-            if ($(this.block).attr("data-mod") == 680) {
-              if (this.key == "Б") {
-                $("#description-equipment").html(this.value);
-                $(this.block).attr("data-set", this.key);
-              } else if (this.key == "С") {
-                $("#description-equipment").html(this.value);
-                $(this.block).attr("data-set", this.key);
-              } else if (this.key == "П") {
-                $("#description-equipment").html(this.value);
-                $(this.block).attr("data-set", this.key);
-              }
-            } else if ($(this.block).attr("data-mod") == 1000) {
-              if (this.key == "Б") {
-                $("#description-equipment").html(this.value);
-                $(this.block).attr("data-set", this.key);
-              } else if (this.key == "С") {
-                $("#description-equipment").html(this.value);
-                $(this.block).attr("data-set", this.key);
-              } else if (this.key == "П") {
-                $("#description-equipment").html(this.value);
-                $(this.block).attr("data-set", this.key);
-              }
-            } else {
-              alert("Вы не выбрали объем");
-            }
-          }
-
-          break;
-
-        case '#configuration_block':
-          if ($(this.block).attr("data-set") == "Б") {
-            $("#description-configuration").html(this.value);
-            $(this.block).attr("data-config", this.key);
-          } else if ($(this.block).attr("data-set") == "С") {
-            $("#description-configuration").html(this.value);
-            $(this.block).attr("data-config", this.key);
-          } else if ($(this.block).attr("data-set") == "П") {
-            $("#description-configuration").html(this.value);
-            $(this.block).attr("data-config", this.key);
-          } else {
-            alert("Вы не выбрали комплектацию или объем");
           }
 
           break;
 
         case '#constructor_color':
-          if ($(this.block).attr("data-config") != "") {
-            var sizeValue = $(this.mod).attr('data-coating');
+          var sizeValue = $(this.mod).attr('data-coating');
 
-            if (sizeValue) {
-              $("#description-color").html('глянцевый, ' + this.key);
-              $(this.block).attr("data-color", this.key);
-              $(this.block).attr("data-url", this.url + this.key + '_90');
-              $(this.block + ' source').attr("srcset", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.webp');
-              $(this.block + ' img').attr("src", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.png');
-            } else if (sizeValue) {
-              $("#description-color").html(this.key);
-              $(this.block).attr("data-color", this.key);
-              $(this.block).attr("data-url", this.url + this.key + '_90');
-              $(this.block + ' source').attr("srcset", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.webp');
-              $(this.block + ' img').attr("src", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.png');
-            }
-          } else {
-            alert("Вы не выбрали предыдущие детали");
+          if (sizeValue) {
+            $("#details-color").val(this.key);
+            $(this.block).attr("data-color", this.key);
+            $(this.block).attr("data-url", this.url + this.key + '_90');
+            $(this.block + ' source').attr("srcset", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.webp');
+            $(this.block + ' img').attr("src", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.png');
+          } else if (sizeValue) {
+            $("#details-color").val(this.key);
+            $(this.block).attr("data-color", this.key);
+            $(this.block).attr("data-url", this.url + this.key + '_90');
+            $(this.block + ' source').attr("srcset", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.webp');
+            $(this.block + ' img').attr("src", this.url + this.key + '_90' + $(this.block).attr("data-set") + '.png');
           }
 
           break;
 
         case '#backlight_block':
-          if ($(this.block).attr("data-color") != "") {
-            $("#description-backlight").html(this.key);
-            $("#constructor-block").css("background-image", 'url(' + this.value + ')');
-            $("#constructor-block").css("border", 'none');
-          } else {
-            alert("Вы не выбрали предыдущие детали");
-          }
-
+          $("#details-backlight").val(this.key);
+          $("#constructor-block").css("background-image", 'url(' + this.value + ')');
+          $("#constructor-block").css("border", 'none');
           break;
       }
     }
@@ -308,21 +317,6 @@ var ActButton = /*#__PURE__*/function () {
 
   return ActButton;
 }();
-/* 
- **Подставляет скролл, если высота превышает родителя 
- * name - название блока, у которого берется высота
- * h - максимальная высота
- * block - блок которому будет применяться скролл
-*/
-
-
-function maxSizeBlock(name, h, block) {
-  var h_block = name.height();
-
-  if (h_block > h) {
-    block.css("overflow-y", "scroll");
-  }
-}
 
 showImg($(".show_list-img"), "show-img", 1, 1);
 
