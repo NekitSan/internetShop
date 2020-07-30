@@ -862,12 +862,12 @@ header .menu ul .inner_menu .menu-item:hover {
 
 .main-block-constructor #constructor-block .edit_block {
   height: 380px;
-  min-width: 72px;
+  width: 140px;
 }
 
 .main-block-constructor #constructor-block .edit_block img {
   display: inline-block;
-  width: auto;
+  width: 100%;
   height: 100%;
   margin: 0 auto;
 }
@@ -984,7 +984,7 @@ header .menu ul .inner_menu .menu-item:hover {
 }
 
 .catalog .grocery-list .grocery-list_item .product {
-  background-color: #ddd;
+  border: solid 1px #ddd;
   color: #000;
   padding: 0;
   text-align: center;
@@ -1056,7 +1056,7 @@ header .menu ul .inner_menu .menu-item:hover {
 
 .elemet-container {
   display: block;
-  min-width: 158px;
+  max-width: 208px;
   min-height: 158px;
   padding: 0 0 10px 10px;
 }
@@ -1064,7 +1064,8 @@ header .menu ul .inner_menu .menu-item:hover {
 .elemet-container .video {
   width: inherit;
   height: 100%;
-  border: solid 1px #000;
+  border: solid 1px #ddd;
+  border-radius: 5px;
 }
 
 .elemet-container .photo {
@@ -1392,6 +1393,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media only screen and (max-width: 768px) {
+  .height {
+    min-height: 800px;
+  }
+
   header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1492,13 +1497,21 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-@media (max-width: 400px) {
-  body {
-    min-height: 1400px;
+@media (max-width: 570px) {
+  .main-block-constructor .tabBar {
+    height: 350px;
   }
+}
 
+@media (max-width: 400px) {
   .main-block-constructor .tabBar {
     height: 550px;
+  }
+}
+
+@media (max-width: 280px) {
+  .main-block-constructor .tabBar {
+    height: 580px;
   }
 }
 
